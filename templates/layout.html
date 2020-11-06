@@ -1,0 +1,31 @@
+<HTML>
+    <HEAD>
+    <TITLE>Sign In</TITLE>
+    <link rel="Stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/gif" sizes="16x16"> 
+
+    {% block head %}
+    <style>
+      body {
+        background-image: url("{{url_for('static', filename='img/LayoutBG.png')}}");
+      }
+    </style>
+    {% endblock %}    
+    </HEAD>
+    <BODY>         
+        <!-- NavBar -->
+        <ul>
+            <li><img src="{{ url_for('static', filename='img/insertcoin logo horizontal white.png') }}"></li>
+            <div id="NavBar">
+            <li><a class="active"href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="#store">Store</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#support">Support</a></li>
+            <l1><div class="account"><a href="#account">Sign In</a></div></l1>
+            </div>
+          </ul>
+
+      {% block content %} 
+      {% endblock %} 
+    </BODY>           
+    </HTML>

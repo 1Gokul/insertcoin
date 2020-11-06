@@ -1,0 +1,63 @@
+<HTML>
+    <HEAD>
+    <TITLE>Sign In</TITLE>
+    <link rel="Stylesheet" type="text/css" href="/static/css/index.css">
+    <link rel="icon" href="/static/img/favicon.ico" type="image/gif" sizes="16x16"> 
+
+    
+
+    <style>
+      body {
+        background-image: url("/static/img/LayoutBG.png");
+      }
+    </style>
+    
+    <style>
+      body {
+        background-image: url("/static/img/RegisterBG.jpg");
+      }
+    </style>
+    
+    </HEAD>
+    <BODY>         
+        <!-- NavBar -->
+        <ul>
+            <li><img src="/static/img/insertcoin%20logo%20horizontal%20white.png"></li>
+            <div id="NavBar">
+            <li><a class="active"href="/">Home</a></li>
+            <li><a href="#store">Store</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#support">Support</a></li>
+            <l1><div class="account"><a href="#account">Sign In</a></div></l1>
+            </div>
+          </ul>
+
+      
+        <div class="LoginBox">
+            <h1>SIGN IN</h1>
+            <div class="error"></div>
+            <form method=POST action="/register">
+                <div class="form-group">
+                    <label for="EmailInput">Email Address</label>
+                    <input type="email" class="form-control" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="UsernameInput">Username</label>
+                    <input type="text" class="form-control" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="PasswordInput">Password</label>
+                    <input type="password" class="form-control" name="pass" required>
+                </div>                
+                <div class="form-group">
+                    <label for="PasswordConfirmInput">Confirm Password</label>
+                    <input type="password" class="form-control" name="passconfirm">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Register</button>
+            </form>
+    
+        </div>
+        
+ 
+    </BODY>           
+    </HTML>

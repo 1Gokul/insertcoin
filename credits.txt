@@ -1,0 +1,4 @@
+Logo:https://www.flaticon.com/authors/smashicons
+Background for Layout: https://www.reddit.com/r/wallpapers/comments/d4efjj/oc_minimal_gaming_background_4800x2400/
+Background for Login:https://unsplash.com/photos/9AmKnNZw3GA?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink
+Background for Register: https://unsplash.com/photos/fXmmSz5KkO8?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink
