@@ -64,4 +64,5 @@ def register():
 
 if __name__ == '__main__':
     app.secret_key = 'mysecret'
+    app.config['SESSION_TYPE'] = 'mongodb'
     app.run(debug=True)
