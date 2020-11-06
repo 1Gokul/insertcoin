@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for, request, session, redirect
 from flask_bcrypt import Bcrypt
 from flask_pymongo import pymongo
+import secrets
 import bcrypt
 import os
 
@@ -11,6 +12,7 @@ client = pymongo.MongoClient(CONNECTION_STRING)
 db = client['GameRampStore']
 
 app = Flask(__name__)
+app.secret_key = secrets.token_urlsafe(32)
 bcrypt = Bcrypt(app)
 
 @app.route('/')
@@ -63,6 +65,5 @@ def register():
 #     return redirect(url_for('index'))
 
 if __name__ == '__main__':
-    app.secret_key = 'mysecret'
     app.config['SESSION_TYPE'] = 'mongodb'
-    app.run(debug=True)
+    app.run()
