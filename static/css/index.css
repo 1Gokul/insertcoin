@@ -6,6 +6,10 @@ body{
     /* background-image: url("../img/LayoutBG.png"); */
     background-size: cover;
     font-family: 'Poppins', sans-serif;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
     }
 
 .loginBox{

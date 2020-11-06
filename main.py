@@ -1,6 +1,6 @@
 from flask import Flask, render_template, url_for, request, session, redirect
+from flask_bcrypt import Bcrypt
 from flask_pymongo import pymongo
-from flask_pymongo import PyMongo
 import bcrypt
 import os
 
@@ -11,10 +11,12 @@ client = pymongo.MongoClient(CONNECTION_STRING)
 db = client['GameRampStore']
 
 app = Flask(__name__)
+bcrypt = Bcrypt(app)
 
 @app.route('/')
 def index():
     if 'username' in session: 
+        session.clear()
         return render_template('loggedin.html')
 
     return render_template('login.html')
@@ -25,12 +27,11 @@ def login():
     login_user = users.find_one({'username':request.form['username']})
 
     if login_user:
-        if bcrypt.checkpw(request.form['pass'].encode('utf-8'), login_user['password']):
+        if bcrypt.check_password_hash(login_user['password'], request.form['pass'].encode('utf-8')):            
             session['username'] = request.form['username']
             return redirect(url_for('index'))
 
-
-    error = "The username or password that you have entered is incorrect."    
+    error = "The username or password that you have entered is incorrect."
     return render_template('login.html', error = error)
 
 @app.route('/register', methods=['POST', 'GET'])
@@ -41,7 +42,7 @@ def register():
             existing_user = users.find_one({'username':request.form['username']})
 
             if existing_user is None:
-                hashpass = bcrypt.hashpw(request.form['pass'].encode('utf-8'), bcrypt.gensalt())
+                hashpass = bcrypt.generate_password_hash(request.form['pass'].encode('utf-8'))
                 users.insert({'username' : request.form['username'], 'password' : hashpass})
                 # session['username'] = request.form['username']
                 return redirect(url_for('index'))
