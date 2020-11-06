@@ -18,7 +18,6 @@ bcrypt = Bcrypt(app)
 @app.route('/')
 def index():
     if 'username' in session: 
-        session.clear()
         return render_template('loggedin.html')
 
     return render_template('login.html')
