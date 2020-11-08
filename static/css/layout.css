@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    /* background-image: url("../img/LayoutBG.png"); */
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+    }
+
+.loginBox{
+    width: 320px;
+    height: 420px;
+    color: #fff;
+    top: 45%;
+    left: 25%;
+    position: absolute;
+    transform:translate(-50%,-50%) ;
+    box-sizing: border-box;
+    padding: 70px 30px;
+}   
+
+h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-weight: 200;
+    font-size: 40px;
+}
+
+
+
+img {
+    padding-top: 10px;
+    padding-right: 50px;
+    overflow: hidden;
+    width: 100px;
+    z-index: -1;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    overflow: visible;
+    background-color: #333;
+  }
+  
+
+  li {
+    float: left;
+  }
+  
+  #NavBar a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+  #Navbar a:hover {
+    background-color: #111;
+  }
+
+
+.loginbutton {
+    border: none;
+    background-color: #333;
+    color:white;
+    padding: 10px 50px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    position: relative;
+    top: 10px;
+    left: 60px;
+    border-radius:5px;
+    cursor: pointer;
+  }
+
+.loginbutton :hover {
+    background-color: rgb(80, 79, 79);
+}
+
+  
+.error{
+    color: #ff5555;
+}
+
+/* Account button dropdown menu */
+.accbtn {
+  background-color: #333;
+  color: white;
+  padding: 18px;  
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  left: 825px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .accbtn {
+  background-color: #111;
+}

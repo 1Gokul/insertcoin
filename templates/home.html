@@ -1,0 +1,90 @@
+<HTML>
+
+<HEAD>
+  <TITLE>Sign In</TITLE>
+  <link rel="Stylesheet" type="text/css" href="/static/css/home.css">
+  <link rel="icon" href="/static/img/favicon.ico" type="image/gif" sizes="16x16">
+
+  {% block head %}
+  <!-- <style>
+    body {
+      background-image: url("/static/img/LayoutBG.png");
+    } -->
+
+  <!-- </style> -->
+  {% endblock %}
+
+</HEAD>
+
+<BODY>
+  <!-- NavBar -->
+  
+  <ul class="navbarlist">
+    <li><img src="/static/img/insertcoin%20logo%20horizontal%20white.png" class="logo"></li>
+    <div id="NavBar">
+      <li><a href="{{ url_for('index') }}">Home</a></li>
+      <li><a href="{{ url_for('about') }}">About</a></li>
+      <l1>
+        <div class="account"><a href="{{ url_for('acc_check') }}">Sign In</a></div>
+      </l1>
+    </div>
+  </ul>
+  {% block content %}
+
+  <div class="bgimg-1">
+    <div>
+      <p style="float:left">
+      <div class="mainlogo">
+        <img src="../static/img/insertcoin logo vertical white.png" height=450 weight=450></div>
+      <div class="largeheading">The only store you will ever need</div>
+      </p>
+    </div>
+    <div class="arrowdown">
+      <img src="../static/img/homepage_arrowdown.png" height=100 width=100>
+    </div>
+  </div>
+
+  <div
+    style="color: #777;background-color:#282E34;text-align:center;padding:20px 50px;text-align: justify;font-size: 40;font-weight: 400;">
+    <p>insertcoin is a digital store with a curated selection of games, helping you download, install and manage games
+      without the need of a launcher.
+    </p>
+  </div>
+
+  <div class="bgimg-2">
+    <div class="largeheading">Hand-picking the best in gaming</div>
+  </div>
+
+  <div style="position:relative;">
+    <div
+      style="color:#ddd;background-color:#282E34;text-align:center;padding:20px 50px;text-align: justify;font-size: 40;font-weight: 400;">
+      <p>A selection of great DRM-free games, from modern hits to all-time classics, that you really shouldn't miss.</p>
+    </div>
+  </div>
+
+  <div class="bgimg-3">
+    <div class="largeheading">A customer-first policy, always.</div>
+  </div>
+
+  <div style="position:relative;">
+    <div
+      style="color:#ddd;background-color:#282E34;text-align:center;padding:20px 50px;text-align: justify;font-size: 40;font-weight: 400;">
+      <p>We deliver a user-friendly support enriched with additional customer benefits. We are always here to help!</p>
+    </div>
+  </div>
+
+  <div class="bgimg-4">
+    <div class="largeheading">A hassle-free experience</div>
+  </div>
+
+  <div style="position:relative;">
+    <div
+      style="color:#ddd;background-color:#282E34;text-align:center;padding:20px 50px;text-align: justify;font-size: 40;font-weight: 400;">
+      <p>Making a difference how you buy and play games, with freedom of choice and a unique approach to DRM-free gaming.</p>
+    </div>
+  </div>
+
+  {% endblock %}
+</BODY>
+
+</HTML>

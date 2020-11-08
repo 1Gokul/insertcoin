@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+
+
+body, html {
+    height: 100%;
+    margin: 0;
+    color: #777;
+    padding: 0;
+    /* background-image: url("../img/LayoutBG.png"); 
+     background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; */
+  
+    font-family: 'Poppins', sans-serif;
+    
+  }
+  
+  .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
+    position: relative;
+    opacity: 0.65;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+  }
+  .bgimg-1 {
+    background-image: url("../img/home_bg1.jpg");
+    min-height: 100%; 
+  }
+  
+  .bgimg-2 {
+    background-image: url("../img/home_bg2.jpg");
+    min-height: 400px;
+  }
+  
+  .bgimg-3 {
+    background-image: url("../img/home_bg3.jpg");
+    min-height: 400px;
+  }
+
+  .bgimg-4 {
+    background-image: url("../img/home_bg4.jpg");
+    min-height: 400px;
+  }
+
+  .mainlogo{
+    position: absolute;
+    top:125px;
+    left: 85px;
+  }
+  .largeheading{
+    text-align: end;
+    margin-left: 25%;
+    color:white;
+    font-weight: 900;
+    font-size: 150;
+  }
+  .arrowdown{
+      position: absolute;
+      bottom:50px;
+      left:700px;
+  }
+  
+  .caption {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: #000;
+  }
+  
+  .caption span.border {
+    background-color: #111;
+    color: #fff;
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
+  }
+  
+  
+  /* Turn off parallax scrolling for tablets and phones */
+  @media only screen and (max-device-width: 1024px) {
+    .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
+      background-attachment: scroll;
+    }
+  }
+
+.loginBox{
+    width: 320px;
+    height: 420px;
+    color: #fff;
+    top: 45%;
+    left: 25%;
+    position: absolute;
+    transform:translate(-50%,-50%) ;
+    box-sizing: border-box;
+    padding: 70px 30px;
+}   
+
+h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-weight: 200;
+    font-size: 40px;
+}
+
+.loginBox p{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.download{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute; 
+    top: -50px;
+    left: calc(50%  - 50px);
+}
+
+.loginBox input{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.loginBox input[type="email"], input[type="text"], input[type="Password"]
+{
+    border: none;
+    background: rgba(0, 0, 0, .4);
+    outline: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 40px;
+    color: #fff;       
+    font-size: 16px;
+    position: relative;
+    top: 5px;
+}
+
+.loginBox input[type="submit"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #fb2525;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+}   
+
+.loginBox input[type="submit"]:hover
+{
+    cursor: pointer;
+    background: #ffc107;
+    color:#000
+}
+
+.loginBox a{
+    color: #eee;
+}
+
+
+.loginBox a:hover
+{
+    color: #ffc107;
+}
+
+.loginlogo{
+    margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+    width: 430;
+}
+
+.logo{
+    padding-top: 5px;
+    padding-right: 50px;
+    overflow: hidden;
+    width: 100px;
+    z-index: -2;
+}
+
+.navbarlist {
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+.account{
+    text-align: right;
+    margin-right: 15%;
+    float: right;
+}
+
+  li {
+    float: left;
+  }
+  
+  #NavBar a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+  #Navbar a:hover {
+    background-color: #111;
+  }
+
+
+.loginbutton {
+    border: none;
+    background-color: #333;
+    color:white;
+    padding: 10px 50px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    position: relative;
+    top: 10px;
+    left: 45px;
+    border-radius:5px;
+    cursor: pointer;
+  }
+
+.loginbutton :hover {
+    background-color: rgb(80, 79, 79);
+}
+
+  
+.error{
+    color: #ff5555;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+}

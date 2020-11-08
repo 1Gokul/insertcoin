@@ -1,14 +1,15 @@
-{% extends "layout.html" %}
+{% extends "home.html" %}
 
 {% block head %}
     <style>
       body {
         background-image: url("{{url_for('static', filename='img/LoginBG.jpg')}}");
+        background-size: cover;
       }
     </style>
 {% endblock %}
 
-{% block content %}        
+{% block content %}     
         <div class="LoginBox">
             <h1>SIGN IN</h1>
             <div class="error">{{ error }}</div>
@@ -21,13 +22,12 @@
                     <label for="PasswordInput">Password</label>
                     <input type="password" class="form-control" name="pass" required>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block">SIGN IN</button>
+                <button class="loginbutton" type="submit" class="btn btn-primary btn-block">SIGN IN</button>
             <br>
             <div>
                 Don't have an account? <br> <a href="{{ url_for('register') }}">Sign up here</a>.
             </div>
-            </form>
-    
+            </form>    
         </div>
 
 {% endblock %}

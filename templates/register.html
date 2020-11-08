@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "home.html" %}
 
 {% block head %}
 {{ super() }}
@@ -11,7 +11,7 @@
 
 {% block content %}
         <div class="LoginBox">
-            <h1>SIGN IN</h1>
+            <h1>REGISTER</h1>
             <div class="error">{{ error }}</div>
             <form method=POST action="{{ url_for('register') }}">
                 <div class="form-group">
@@ -30,7 +30,7 @@
                     <label for="PasswordConfirmInput">Confirm Password</label>
                     <input type="password" class="form-control" name="passconfirm">
                 </div>
-                <button type="submit" class="btn btn-primary btn-block">REGISTER</button>
+                <button class="loginbutton" type="submit" class="btn btn-primary btn-block">REGISTER</button>
             </form>
     
         </div>
