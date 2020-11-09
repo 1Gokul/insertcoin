@@ -1,24 +1,51 @@
 {% extends "home.html" %}
 
+{% block head %}
+<style>
+  body {
+    background-image: url("/static/img/LayoutBG.png");
+  }
+
+  .creditlink {
+    color: aqua;
+    margin-left: 5%;
+  }
+
+  .about {
+    color: white;
+    background-color: rgba(50, 50, 50, 0.8);
+    text-align: center;
+    padding: 20px 50px;
+    text-align: justify;
+    font-size: 40;
+    font-weight: 400;
+  }
+</style>
+{% endblock %}
 
 {% block content %}
-<div
-    style="color: #777;background-color:#282E34;text-align:center;padding:20px 50px;text-align: justify;font-size: 40;font-weight: 400;">
-    <h1>ABOUT</h1>
-    <p>This  website has been made only for a college project and has not been made for any commercial use. </p>
-    <p>Credits:
-        <br><a href = "https://www.w3schools.com/">W3Schools for the code help</a>
-        <br><a href = "https://www.gog.com/about_gog">GOG for the Homepage text</a>       <br><a href = https://www.flaticon.com/authors/smashicons>Logo</a>
-      <br><a href = "https://unsplash.com/photos/9AmKnNZw3GA?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink"/>Background for Layout</a>
-      <br><a href = https://www.flaticon.com/authors/smashicons>Background for Login</a>
-      <br><a href = "https://unsplash.com/photos/fXmmSz5KkO8?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink">Background for Register</a>
-    </p>
+<div class="about">
+  <h1>ABOUT</h1>
+  <p>This website has been made only for a college project and has not been made for any commercial use. </p>
+  <p>Credits:
+    <br><a class="creditlink" href="https://www.w3schools.com/">W3Schools for the code help</a>
+    <br><a class="creditlink" href="https://www.gog.com/about_gog">GOG for the Homepage text</a>
+    <br><a class="creditlink" href=https://www.flaticon.com/authors/smashicons>Logo</a>
+    <br><a class="creditlink"
+      href="https://unsplash.com/photos/9AmKnNZw3GA?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink" />Background
+    for Layout</a>
+    <br><a class="creditlink" href=https://www.flaticon.com/authors/smashicons>Background for Login</a>
+    <br><a class="creditlink"
+      href="https://unsplash.com/photos/fXmmSz5KkO8?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink">Background
+      for Register</a>
+  </p>
 
-    <p>
-        Made by Gokul Viswanath and Sahil Khatri
-        <br><a href="https://github.com/1Gokul/insertcoin">This website's Github repository</a>
-    </p>
-  </div>
+
+  <p>
+    Made by Gokul Viswanath and Sahil Khatri
+    <br><a class="creditlink" href="https://github.com/1Gokul/insertcoin">This website's Github repository</a>
+  </p>
+</div>
 
 
 {% endblock %}
