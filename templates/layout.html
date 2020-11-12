@@ -2,7 +2,7 @@
 
 <HEAD>
   <TITLE>insertcoin: Home</TITLE>
-  <link rel="Stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+  <link rel="Stylesheet" type="text/css" href="{{ url_for('static', filename='css/layout.css') }}">
   <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/gif" sizes="16x16">
 
   {% block head %}
@@ -18,7 +18,7 @@
 
   <!-- NavBar -->
   <ul>
-    <li><img src="{{ url_for('static', filename='img/insertcoin logo horizontal white.png') }}"></li>
+    <li><img class="logo" src="{{ url_for('static', filename='img/insertcoin logo horizontal white.png') }}"></li>
     <div id="NavBar">
       <li><a href="{{ url_for('index') }}">Home</a></li>
       <li><a href="{{ url_for('store') }}">Store</a></li>
@@ -37,6 +37,11 @@
   </ul>
 
   {% block content %}
+  <div class="flex-container">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>  
+  </div>
 
   {% endblock %}
 </BODY>

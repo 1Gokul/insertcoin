@@ -1,29 +1,31 @@
-{% extends "home.html" %}
+{% if layout=='layout' %}{% extends "layout.html" %}
+{% elif layout=='home' %}{% extends "home.html" %}
+{% endif %}
 
-{% block head %}
-<style>
-  body {
-    background-image: url("/static/img/LayoutBG.png");
-  }
+  {% block head %}
+  <style>
+    body {
+      background-image: url("/static/img/LayoutBG.png");
+    }
 
-  .creditlink {
-    color: aqua;
-    margin-left: 5%;
-  }
+    .creditlink {
+      color: aqua;
+      margin-left: 5%;
+    }
 
-  .about {
-    color: white;
-    background-color: rgba(50, 50, 50, 0.8);
-    text-align: center;
-    padding: 20px 50px;
-    text-align: justify;
-    font-size: 40;
-    font-weight: 400;
-  }
-</style>
-{% endblock %}
+    .about {
+      color: white;
+      background-color: rgba(50, 50, 50, 0.8);
+      text-align: center;
+      padding: 20px 50px;
+      text-align: justify;
+      font-size: 40;
+      font-weight: 400;
+    }
+  </style>
+  {% endblock %}
 
-{% block content %}
+  {% block content %}
 <div class="about">
   <h1>ABOUT</h1>
   <p>This website has been made only for a college project and has not been made for any commercial use. </p>
@@ -38,6 +40,8 @@
     <br><a class="creditlink"
       href="https://unsplash.com/photos/fXmmSz5KkO8?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink">Background
       for Register</a>
+    <br><a class="creditlink"
+      href="https://pbs.twimg.com/media/CluDFgaVEAAlLsb.png">Homepage background</a>
   </p>
 
 

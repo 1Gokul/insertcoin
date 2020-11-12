@@ -17,25 +17,26 @@
 </HEAD>
 
 <BODY>
+
   <!-- NavBar -->
-  
-  <ul class="navbarlist">
-    <li><img src="/static/img/insertcoin%20logo%20horizontal%20white.png" class="logo"></li>
+  <ul>
+    <li><img class="logo" src="{{ url_for('static', filename='img/insertcoin logo horizontal white.png') }}"></li>
     <div id="NavBar">
       <li><a href="{{ url_for('index') }}">Home</a></li>
+      <li><a href="{{ url_for('store') }}">Store</a></li>
       <li><a href="{{ url_for('about') }}">About</a></li>
-      <l1>
-        <div class="account"><a href="{{ url_for('acc_check') }}">Sign In</a></div>
-      </l1>
+      <li><span style="position: relative;display: inline-block;left: 825px;"><a href="{{ url_for('acc_check') }}">Sign
+            In</a></span></li>
     </div>
   </ul>
+
+
   {% block content %}
 
   <div class="bgimg-1">
     <div>
       <p style="float:left">
-      <div class="mainlogo">
-        <img src="../static/img/insertcoin logo vertical white.png" height=450 weight=450></div>
+        <img class="mainlogo" src="../static/img/insertcoin logo vertical white.png" height=450 weight=450>
       <div class="largeheading">The only store you will ever need</div>
       </p>
     </div>
@@ -74,13 +75,14 @@
   </div>
 
   <div class="bgimg-4">
-    <div class="largeheading">A hassle-free experience</div>
+    <div class="largeheading">A <br>hassle-free experience</div>
   </div>
 
   <div style="position:relative;">
     <div
       style="color:#ddd;background-color:#282E34;text-align:center;padding:20px 50px;text-align: justify;font-size: 40;font-weight: 400;">
-      <p>Making a difference how you buy and play games, with freedom of choice and a unique approach to DRM-free gaming.</p>
+      <p>We make a difference in how you buy and play games, with freedom of choice and a unique approach to DRM-free
+        gaming.</p>
     </div>
   </div>
 

@@ -34,7 +34,7 @@ h1{
 
 
 
-img {
+.logo {
     padding-top: 10px;
     padding-right: 50px;
     overflow: hidden;
@@ -94,6 +94,10 @@ ul {
     color: #ff5555;
 }
 
+.comment{
+  color: turquoise;
+}
+
 /* Account button dropdown menu */
 .accbtn {
   background-color: #333;
@@ -135,4 +139,25 @@ ul {
 
 .dropdown:hover .accbtn {
   background-color: #111;
+}
+
+.flex-container {
+  display: flex;
+  margin-left: 15%;
+  margin-right: 15%;
+  flex-direction: column;
+  background-color: rgb(20, 20, 20);
+}
+
+.flex-container > div {
+  color:white;
+  margin: auto;
+  width: 90%;
+  padding: 5px;
+  font-size: 30px;
+}
+
+.profiletitle{
+  color: rgb(150, 150, 150);
+  font-size: medium;
 }

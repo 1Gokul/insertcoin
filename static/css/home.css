@@ -19,6 +19,7 @@ body, html {
   
   .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
     position: relative;
+    filter: grayscale(20%);
     opacity: 0.75;
     background-attachment: fixed;
     background-position: center;
@@ -94,7 +95,6 @@ body, html {
     width: 320px;
     height: 420px;
     color: #fff;
-    top: 45%;
     left: 25%;
     position: absolute;
     transform:translate(-50%,-50%) ;
@@ -202,22 +202,31 @@ h1{
     float: right;
 }
 
-  li {
-    float: left;
-  }
-  
+ul {
+  list-style-type: none;
+  margin: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+
+li {
+  float: left;
+}
   #NavBar a{
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 16px 16px;
     text-decoration: none;
+    font-size: 17px;
   }
   
   /* Change the link color to #111 (black) on hover */
   #Navbar a:hover {
     background-color: #111;
   }
+
 
 
 .loginbutton {

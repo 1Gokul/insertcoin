@@ -2,37 +2,46 @@
 
 {% block head %}
 {{ super() }}
-    <style>
-      body {
+<style>
+    body {
         background-image: url("{{url_for('static', filename='img/RegisterBG.jpg')}}");
-      }
-    </style>
+    }
+</style>
 {% endblock %}
 
 {% block content %}
-        <div class="LoginBox">
-            <h1>REGISTER</h1>
-            <div class="error">{{ error }}</div>
-            <form method=POST action="{{ url_for('register') }}">
-                <div class="form-group">
-                    <label for="EmailInput">Email Address</label>
-                    <input type="email" class="form-control" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="UsernameInput">Username</label>
-                    <input type="text" class="form-control" name="username" required>
-                </div>
-                <div class="form-group">
-                    <label for="PasswordInput">Password</label>
-                    <input type="password" class="form-control" name="pass" required>
-                </div>                
-                <div class="form-group">
-                    <label for="PasswordConfirmInput">Confirm Password</label>
-                    <input type="password" class="form-control" name="passconfirm">
-                </div>
-                <button class="loginbutton" type="submit" class="btn btn-primary btn-block">REGISTER</button>
-            </form>
-    
+<div class="LoginBox" style="top: 35%;">
+    <h1>REGISTER</h1>
+    {% if error %}
+    <p class="error">{{ error }}</p>
+        {% elif comment %}
+    <p class="comment">{{ comment }}</p>
+        {% endif %}
+
+    <form method=POST action="{{ url_for('register') }}">
+        <div class="form-group">
+            <label for="EmailInput">Email Address</label>
+            <input type="email" class="form-control" name="email" required>
         </div>
-        
+        <div class="form-group">
+            <label for="ProfileName">Profile Name</label>
+            <input type="text" class="form-control" name="profilename" required>
+        </div>
+        <div class="form-group">
+            <label for="UsernameInput">Username</label>
+            <input type="text" class="form-control" name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="PasswordInput">Password</label>
+            <input type="password" class="form-control" name="pass" required>
+        </div>
+        <div class="form-group">
+            <label for="PasswordConfirmInput">Confirm Password</label>
+            <input type="password" class="form-control" name="passconfirm">
+        </div>
+        <button class="loginbutton" type="submit" class="btn btn-primary btn-block">REGISTER</button>
+    </form>
+
+</div>
+
 {% endblock %}

@@ -10,9 +10,13 @@
 {% endblock %}
 
 {% block content %}     
-        <div class="LoginBox">
+        <div class="LoginBox" style="top: 45%;">
             <h1>SIGN IN</h1>
-            <div class="error">{{ error }}</div>
+            {% if error %}
+            <p class="error">{{ error }}</p>
+                {% elif comment %}
+            <p class="comment">{{ comment }}</p>
+                {% endif %}
             <form method=POST action="{{ url_for('login') }}">
                 <div class="form-group">
                     <label for="UsernameInput">Username</label>

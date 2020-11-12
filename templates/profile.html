@@ -1,7 +1,17 @@
 {% extends "layout.html" %}
 
-{% block content %}
 
-    <h1>Profile</h1>
+
+{% block content %}
+<div class="flex-container">
+    <div>
+<p style="float:left">
+  <img src="../static/img/defaultprofile.png" height=250 width=250>
+<div style="margin-left: 300px; margin-top: 50px;"><span class="profiletitle">Name: </span> {{ prof }}</div>
+<div style="margin-left: 350px; margin-top: 5px; color:aqua; font-size: 20;"><i>#{{ username }}</i></div>
+<div style="margin-left: 300px; margin-top: 50px;"><span class="profiletitle">insertcoin Wallet Balance: </span> ₹{{ balance }}</div>
+<div style="margin-left: 300px; margin-top: 50px;"><span class="profiletitle">Games owned:</span> {{ ngames }}</div>
+</p>
+</div>
 
 {% endblock %}

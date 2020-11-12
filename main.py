@@ -52,7 +52,7 @@ def login():
     login_user = users.find_one({'username': request.form['username']})
 
     if login_user:
-        if bcrypt.check_password_hash(login_user['password'], request.form['pass'].encode('utf-8')):
+        if bcrypt.check_password_hash(login_user['password'], request.form.get('pass', False).encode('utf-8')):
             session['username'] = request.form['username']
             return redirect(url_for('index'))
 
@@ -75,9 +75,9 @@ def register():
                 hashpass = bcrypt.generate_password_hash(
                     request.form['pass'].encode('utf-8'))
                 users.insert(
-                    {'username': request.form['username'], 'password': hashpass})
+                    {'email': request.form['email'], 'profilename': request.form['profilename'], 'username': request.form['username'], 'password': hashpass, 'games': [], 'balance': 5000})
                 # session['username'] = request.form['username']
-                return redirect(url_for('index'))
+                return render_template('login.html', account=account, comment = 'Your account was added successfully!')
 
             else:
                 error = "The username that you entered already exists."
@@ -110,11 +110,18 @@ def store():
 @app.route('/profile')
 def profile():
     global account
+    global db
     if 'username' in session:
-        account = session['username'].upper()
-        return render_template('profile.html', account=account)
+        account = session['username'].upper()   
+        userinfo = db['UserInfo']
+        user = userinfo.find_one({"username": session['username']})
 
-    return render_template('home.html', account=account)
+        if user:
+            return render_template('profile.html', account=account, username = user['username'], prof = user['profilename'], games = user['games'], ngames = len(user['games']), balance = user['balance'])
+        else:
+            return render_template('about.html', account=account)
+    else:
+        return render_template('home.html', account=account)
 
 
 @app.route('/library')
@@ -132,9 +139,9 @@ def about():
     global account
     if 'username' in session:
         account = session['username'].upper()
-        return render_template('about.html', account=account)
-
-    return render_template('about.html', account=account)
+        return render_template('about.html', account=account, layout='layout')
+    else:
+        return render_template('about.html', account=account, layout='home')
 
 
 if __name__ == '__main__':
