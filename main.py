@@ -15,7 +15,7 @@ app.secret_key = secrets.token_urlsafe(32)
 bcrypt = Bcrypt(app)
 
 # default vars for flask
-account = 'Sign In'
+account = 'Log In'
 loginlink = "{{ url_for('login') }}"
 librarylink = "{{ url_for('index') }}"
 
@@ -104,7 +104,7 @@ def store():
         account = session['username'].upper()
         return render_template('store.html', account=account)
 
-    return render_template('home.html', account=account)
+    return redirect(url_for('index'))
 
 
 @app.route('/profile')
@@ -119,9 +119,9 @@ def profile():
         if user:
             return render_template('profile.html', account=account, username = user['username'], prof = user['profilename'], games = user['games'], ngames = len(user['games']), balance = user['balance'])
         else:
-            return render_template('about.html', account=account)
+            return redirect(url_for('index'))
     else:
-        return render_template('home.html', account=account)
+        return redirect(url_for('index'))
 
 
 @app.route('/library')
@@ -131,7 +131,7 @@ def library():
         account = session['username'].upper()
         return render_template('library.html', account=account)
 
-    return render_template('home.html', account=account)
+    return redirect(url_for('index'))
 
 
 @app.route('/about')
@@ -142,6 +142,15 @@ def about():
         return render_template('about.html', account=account, layout='layout')
     else:
         return render_template('about.html', account=account, layout='home')
+
+@app.route('/accountsettings')
+def acc_settings():
+    global account
+    if 'username' in session:
+        account = session['username'].upper()
+        return render_template('accountsettings.html', account=account)
+
+    return redirect(url_for('index'))
 
 
 if __name__ == '__main__':

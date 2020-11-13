@@ -1,5 +1,9 @@
 {% extends "home.html" %}
 
+{% block title %}
+  <TITLE>insertcoin: Log In</TITLE>
+  {% endblock %}
+
 {% block head %}
     <style>
       body {
@@ -11,7 +15,7 @@
 
 {% block content %}     
         <div class="LoginBox" style="top: 45%;">
-            <h1>SIGN IN</h1>
+            <h1>LOG IN</h1>
             {% if error %}
             <p class="error">{{ error }}</p>
                 {% elif comment %}
@@ -26,7 +30,7 @@
                     <label for="PasswordInput">Password</label>
                     <input type="password" class="form-control" name="pass" required>
                 </div>
-                <button class="loginbutton" type="submit" class="btn btn-primary btn-block">SIGN IN</button>
+                <button class="loginbutton" type="submit" class="btn btn-primary btn-block">LOG IN</button>
             <br>
             <div>
                 Don't have an account? <br> <a href="{{ url_for('register') }}">Sign up here</a>.

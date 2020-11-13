@@ -1,7 +1,9 @@
 <HTML>
 
 <HEAD>
+  {% block title %}
   <TITLE>insertcoin: Home</TITLE>
+  {% endblock %}
   <link rel="Stylesheet" type="text/css" href="{{ url_for('static', filename='css/layout.css') }}">
   <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/gif" sizes="16x16">
 
@@ -37,11 +39,6 @@
   </ul>
 
   {% block content %}
-  <div class="flex-container">
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>  
-  </div>
 
   {% endblock %}
 </BODY>

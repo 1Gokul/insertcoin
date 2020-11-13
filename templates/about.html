@@ -2,6 +2,10 @@
 {% elif layout=='home' %}{% extends "home.html" %}
 {% endif %}
 
+{% block title %}
+  <TITLE>insertcoin: About</TITLE>
+  {% endblock %}
+
   {% block head %}
   <style>
     body {
@@ -15,10 +19,12 @@
 
     .about {
       color: white;
-      background-color: rgba(50, 50, 50, 0.8);
+      background-color: rgba(20, 20, 20, 0.9);
       text-align: center;
-      padding: 20px 50px;
-      text-align: justify;
+      margin-left: 15%;
+      margin-right: 15%;
+      padding: 5px 15px;
+      text-align: start;
       font-size: 40;
       font-weight: 400;
     }
@@ -26,8 +32,9 @@
   {% endblock %}
 
   {% block content %}
+
+  <span class="pagetitle">About</span>
 <div class="about">
-  <h1>ABOUT</h1>
   <p>This website has been made only for a college project and has not been made for any commercial use. </p>
   <p>Credits:
     <br><a class="creditlink" href="https://www.w3schools.com/">W3Schools for the code help</a>

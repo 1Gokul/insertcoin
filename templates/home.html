@@ -1,7 +1,9 @@
 <HTML>
 
 <HEAD>
-  <TITLE>Sign In</TITLE>
+  {% block title %}
+  <TITLE>insertcoin: Home</TITLE>
+  {% endblock %}
   <link rel="Stylesheet" type="text/css" href="/static/css/home.css">
   <link rel="icon" href="/static/img/favicon.ico" type="image/gif" sizes="16x16">
 
@@ -25,7 +27,7 @@
       <li><a href="{{ url_for('index') }}">Home</a></li>
       <li><a href="{{ url_for('store') }}">Store</a></li>
       <li><a href="{{ url_for('about') }}">About</a></li>
-      <li><span style="position: relative;display: inline-block;left: 825px;"><a href="{{ url_for('acc_check') }}">Sign
+      <li><span style="position: relative;display: inline-block;left: 825px;"><a href="{{ url_for('acc_check') }}">Log
             In</a></span></li>
     </div>
   </ul>
