@@ -1,8 +1,8 @@
 {% extends "layout.html" %}
 
 {% block title %}
-  <TITLE>insertcoin: Account Settings</TITLE>
-  {% endblock %}
+<TITLE>insertcoin: Account Settings</TITLE>
+{% endblock %}
 
 {% block head %}
 <style>
@@ -21,7 +21,7 @@
         box-sizing: border-box;
     }
 
-    h2{
+    h2 {
         margin-top: 15px;
         font-size: 30;
         font-weight: 400;
@@ -64,27 +64,28 @@
         height: 300px;
     }
 
-.tabcontent .submitbutton {
-  border: none;
-  background-color: #333;
-  color:white;
-  padding: 10px 50px;
-  text-align: center;
-  text-decoration: none;
-  display: block;
-  
+    .tabcontent .submitbutton {
+        border: none;
+        background-color: #333;
+        color: white;
+        padding: 10px 50px;
+        text-align: center;
+        text-decoration: none;
+        display: block;
 
-  font-family: 'Poppins', sans-serif;
-  font-size: 16px;
-  position: relative;
-  top: 20px;
-  left: 45px;
-  border-radius:5px;
-  cursor: pointer;
-}
-.tabcontent .submitbutton:hover {
-  background-color: rgb(100, 100, 100)
-}
+
+        font-family: 'Poppins', sans-serif;
+        font-size: 16px;
+        position: relative;
+        top: 20px;
+        left: 45px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .tabcontent .submitbutton:hover {
+        background-color: rgb(100, 100, 100)
+    }
 </style>
 {% endblock %}
 
@@ -93,7 +94,8 @@
 
 <div style="margin-left: 15%; margin-right: 15%;">
     <div class="tab">
-        <button class="tablinks" onclick="openSetting(event, 'ChangeUsername')" id="defaultOpen">Change Username</button>
+        <button class="tablinks" onclick="openSetting(event, 'ChangeUsername')" id="defaultOpen">Change
+            Username</button>
         <button class="tablinks" onclick="openSetting(event, 'ChangePassword')">Change Password</button>
         <button class="tablinks" onclick="openSetting(event, 'DeleteAccount')">Delete Account</button>
     </div>
@@ -101,10 +103,10 @@
     <div id="ChangeUsername" class="tabcontent">
         <h2>Change Username</h2>
         {% if error %}
-            <p class="error">{{ error }}</p>
-                {% elif comment %}
-            <p class="comment">{{ comment }}</p>
-                {% endif %}
+        <p class="error">{{ error }}</p>
+        {% elif comment %}
+        <p class="comment">{{ comment }}</p>
+        {% endif %}
         <form method=POST action="{{ url_for('changeusername') }}">
             <div class="form-group">
                 <label for="OldUsername">Old Username </label>
@@ -116,7 +118,7 @@
                 <input type="text" class="form-control" name="newusername" required>
             </div>
             <button class="submitbutton" type="submit" class="btn btn-primary btn-block">Change Username</button>
-        </form> 
+        </form>
     </div>
 
     <div id="ChangePassword" class="tabcontent">
@@ -132,12 +134,12 @@
                 <input type="password" class="form-control" name="newpass" required>
             </div>
             <button class="submitbutton" type="submit" class="btn btn-primary btn-block">Change Password</button>
-        </form> 
+        </form>
     </div>
 
     <div id="DeleteAccount" class="tabcontent">
         <h2>Delete Account(WIP)</h2>
-        <p>Are you sure that you want to delete your account? 
+        <p>Are you sure that you want to delete your account?
             <br><span style="color:red">Warning: This action is irreversible.</span>
         </p>
     </div>

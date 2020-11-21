@@ -224,8 +224,7 @@ li {
   
   /* Change the link color to #111 (black) on hover */
   #Navbar a:hover {
-    background-color: #111;
-  }
+    color:rgb(185, 145, 255)  }
 
 
 

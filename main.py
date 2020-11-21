@@ -198,7 +198,7 @@ def changeusername():
                 else:
                     userinfo.update_one({'username': request.form['oldusername']}, {
                                         "$set": {"username": request.form['newusername']}})
-                    session['username'] = request.form['newusername']     
+                    session['username'] = request.form['newusername']
                     account = session['username'].upper()
                     return render_template('accountsettings.html', account=account, comment="New Username set successfully!")
 

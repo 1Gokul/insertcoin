@@ -1,16 +1,14 @@
 {% extends "layout.html" %}
 
 {% block title %}
-  <TITLE>insertcoin: {{ prof }} </TITLE>
+<TITLE>insertcoin: {{ prof }} </TITLE>
 {% endblock %}
 
 {% block head %}
 <style>
-
-body {
-      background-image: url("{{url_for('static', filename='img/ProfileBG.jpg')}}");
-    }
-
+  body {
+    background-image: url("{{url_for('static', filename='img/ProfileBG.jpg')}}");
+  }
 </style>
 {% endblock %}
 
@@ -18,19 +16,20 @@ body {
 {% block content %}
 <span class="pagetitle">{{ prof }}'s Account</span>
 <div class="flex-container">
-    <div>
-      <span style="float: right; margin-top: 10px;">
-        <a href="{{ url_for('acc_settings') }}" style=" color:cadetblue; font-size: medium;">Account settings</a>
-        </span>
-<p style="float:left">
-  <img src="../static/img/defaultprofile.png" height=250 width=250>
-  
-<div style="margin-left: 300px; margin-top: 45px; color:turquoise;"><i>#{{ username }}</i></div>
-<div style="margin-left: 300px; margin-top: 10px;"><span class="profiletitle">Name: </span> {{ prof }}</div>
-<div style="margin-left: 300px; margin-top: 10px;"><span class="profiletitle">insertcoin Wallet Balance: </span> ₹{{ balance }}</div>
-<div style="margin-left: 300px; margin-top: 10px;"><span class="profiletitle">Games owned:</span> {{ ngames }}</div>
-</p>
+  <div>
+    <span style="float: right; margin-top: 10px;">
+      <a href="{{ url_for('acc_settings') }}" style=" color:cadetblue; font-size: medium;">Account settings</a>
+    </span>
+    <p style="float:left">
+      <img src="../static/img/defaultprofile.png" height=250 width=250>
 
-</div>
+    <div style="margin-left: 300px; margin-top: 45px; color:turquoise;"><i>#{{ username }}</i></div>
+    <div style="margin-left: 300px; margin-top: 10px;"><span class="profiletitle">Name: </span> {{ prof }}</div>
+    <div style="margin-left: 300px; margin-top: 10px;"><span class="profiletitle">insertcoin Wallet Balance: </span>
+      ₹{{ balance }}</div>
+    <div style="margin-left: 300px; margin-top: 10px;"><span class="profiletitle">Games owned:</span> {{ ngames }}</div>
+    </p>
 
-{% endblock %}
+  </div>
+
+  {% endblock %}

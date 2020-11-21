@@ -1,8 +1,8 @@
 {% extends "home.html" %}
 
 {% block title %}
-  <TITLE>insertcoin: Register</TITLE>
-  {% endblock %}
+<TITLE>insertcoin: Register</TITLE>
+{% endblock %}
 
 {% block head %}
 {{ super() }}
@@ -18,9 +18,9 @@
     <h1>REGISTER</h1>
     {% if error %}
     <p class="error">{{ error }}</p>
-        {% elif comment %}
+    {% elif comment %}
     <p class="comment">{{ comment }}</p>
-        {% endif %}
+    {% endif %}
 
     <form method=POST action="{{ url_for('register') }}">
         <div class="form-group">
