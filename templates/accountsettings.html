@@ -63,6 +63,28 @@
         box-sizing: border-box;
         height: 300px;
     }
+
+.tabcontent .submitbutton {
+  border: none;
+  background-color: #333;
+  color:white;
+  padding: 10px 50px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  
+
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  position: relative;
+  top: 20px;
+  left: 45px;
+  border-radius:5px;
+  cursor: pointer;
+}
+.tabcontent .submitbutton:hover {
+  background-color: rgb(100, 100, 100)
+}
 </style>
 {% endblock %}
 
@@ -71,23 +93,50 @@
 
 <div style="margin-left: 15%; margin-right: 15%;">
     <div class="tab">
-        <button class="tablinks" onclick="openCity(event, 'ChangeUsername')" id="defaultOpen">Change Username</button>
-        <button class="tablinks" onclick="openCity(event, 'ChangePassword')">Change Password</button>
-        <button class="tablinks" onclick="openCity(event, 'DeleteAccount')">Delete Account</button>
+        <button class="tablinks" onclick="openSetting(event, 'ChangeUsername')" id="defaultOpen">Change Username</button>
+        <button class="tablinks" onclick="openSetting(event, 'ChangePassword')">Change Password</button>
+        <button class="tablinks" onclick="openSetting(event, 'DeleteAccount')">Delete Account</button>
     </div>
 
     <div id="ChangeUsername" class="tabcontent">
         <h2>Change Username</h2>
-        <p>Change your username to:</p>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+                {% elif comment %}
+            <p class="comment">{{ comment }}</p>
+                {% endif %}
+        <form method=POST action="{{ url_for('changeusername') }}">
+            <div class="form-group">
+                <label for="OldUsername">Old Username </label>
+                <input type="text" class="form-control" name="oldusername" required>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="NewUsername">New Username</label>
+                <input type="text" class="form-control" name="newusername" required>
+            </div>
+            <button class="submitbutton" type="submit" class="btn btn-primary btn-block">Change Username</button>
+        </form> 
     </div>
 
     <div id="ChangePassword" class="tabcontent">
-        <h2>Change Password</h2>
-        <p>Change your password to:</p>
+        <h2>Change Password(WIP)</h2>
+        <form method=POST action="{{ url_for('changepassword') }}">
+            <div class="form-group">
+                <label for="OldPassword">Old Password </label>
+                <input type="password" class="form-control" name="oldpass" required>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="NewPassword">New Password</label>
+                <input type="password" class="form-control" name="newpass" required>
+            </div>
+            <button class="submitbutton" type="submit" class="btn btn-primary btn-block">Change Password</button>
+        </form> 
     </div>
 
     <div id="DeleteAccount" class="tabcontent">
-        <h2>Delete Account</h2>
+        <h2>Delete Account(WIP)</h2>
         <p>Are you sure that you want to delete your account? 
             <br><span style="color:red">Warning: This action is irreversible.</span>
         </p>
@@ -95,7 +144,7 @@
 </div>
 
 <script>
-    function openCity(evt, cityName) {
+    function openSetting(evt, settingName) {
         var i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("tabcontent");
         for (i = 0; i < tabcontent.length; i++) {
@@ -105,7 +154,7 @@
         for (i = 0; i < tablinks.length; i++) {
             tablinks[i].className = tablinks[i].className.replace(" active", "");
         }
-        document.getElementById(cityName).style.display = "block";
+        document.getElementById(settingName).style.display = "block";
         evt.currentTarget.className += " active";
     }
 
