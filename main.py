@@ -12,7 +12,7 @@ client = pymongo.MongoClient(CONNECTION_STRING)
 db = client['GameRampStore']
 
 app = Flask(__name__)
-app.secret_key = secrets.token_urlsafe(32)
+app.secret_key = os.environ.get("SECRET_KEY")
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 bcrypt = Bcrypt(app)
 
