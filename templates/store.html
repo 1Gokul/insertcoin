@@ -5,6 +5,15 @@
 <TITLE>insertcoin: Store</TITLE>
 {% endblock %}
 
+{% block head %}
+{{ super() }}
+<style>
+    body {
+        background-image: url("{{url_for('static', filename='img/StoreBG.jpg')}}");
+    }
+</style>
+{% endblock %}
+
 {% block content %}
 
 <span class="pagetitle">Store</span>

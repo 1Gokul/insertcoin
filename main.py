@@ -6,6 +6,7 @@ import string
 import os
 import functools
 
+
 CONNECTION_STRING = os.environ.get("MONGO_KEY")
 client = pymongo.MongoClient(CONNECTION_STRING)
 db = client['GameRampStore']
