@@ -71,7 +71,7 @@ ul {
   
   /* Change the link color to #111 (black) on hover */
   #Navbar a:hover {
-    color: rgb(185, 145, 255)
+    color: turquoise
   }
 
 
@@ -144,7 +144,7 @@ ul {
 }
 
 .dropdown:hover .accbtn {
-  color: rgb(185, 145, 255)}
+  color: turquoise}
 
 .flex-container {
   display: flex;

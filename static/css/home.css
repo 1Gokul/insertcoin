@@ -224,7 +224,7 @@ li {
   
   /* Change the link color to #111 (black) on hover */
   #Navbar a:hover {
-    color:rgb(185, 145, 255)  }
+    color:turquoise  }
 
 
 
@@ -244,13 +244,13 @@ li {
     cursor: pointer;
   }
 
-.loginbutton :hover {
-    background-color: rgb(80, 79, 79);
+.loginbutton:hover {
+    background-color: rgb(57, 185, 173);
 }
 
   
 .error{
-    color: #ff5555;
+    color: rgb(248, 114, 114);
 }
 
 .footer {

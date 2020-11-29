@@ -17,13 +17,13 @@
         border-right: 3px solid rgb(200, 200, 200);
         background-color: rgb(20, 20, 20);
         width: 30%;
-        height: 300px;
+        height: 350px;
         box-sizing: border-box;
     }
 
     h2 {
         margin-top: 15px;
-        font-size: 30;
+        font-size: 35;
         font-weight: 400;
         text-align: left;
     }
@@ -57,11 +57,11 @@
     .tabcontent {
         float: left;
         color: white;
-        padding: 0px 12px;
+        padding: 0px 20px;
         background-color: rgba(20, 20, 20, 0.9);
         width: 70%;
         box-sizing: border-box;
-        height: 300px;
+        height: 350px;
     }
 
     .tabcontent .submitbutton {
@@ -84,7 +84,7 @@
     }
 
     .tabcontent .submitbutton:hover {
-        background-color: rgb(100, 100, 100)
+        background-color: rgb(64, 214, 199);
     }
 </style>
 {% endblock %}
@@ -94,22 +94,46 @@
 
 <div style="margin-left: 15%; margin-right: 15%;">
     <div class="tab">
-        <button class="tablinks" onclick="openSetting(event, 'ChangeUsername')" id="defaultOpen">Change
+        <button class="tablinks" onclick="openSetting(event, 'ChangeProfName')" id="1">Change
+            Profile Name</button>
+        <button class="tablinks" onclick="openSetting(event, 'ChangeUsername')" id="2">Change
             Username</button>
-        <button class="tablinks" onclick="openSetting(event, 'ChangePassword')">Change Password</button>
-        <button class="tablinks" onclick="openSetting(event, 'DeleteAccount')">Delete Account</button>
+        <button class="tablinks" onclick="openSetting(event, 'ChangePassword')" id="3">Change Password</button>
+        <button class="tablinks" onclick="openSetting(event, 'DeleteAccount')" id="4">Delete Account</button>
+    </div>
+
+    <div id="ChangeProfName" class="tabcontent">
+        <h2>Change Profile Name</h2>
+        {% if name_error %}
+        <p class="error">{{ name_error }}</p>
+        {% elif name_comment %}
+        <p class="comment">{{ name_comment }}</p>
+        {% endif %}
+        <form method=POST action="{{ url_for('changeprofilename') }}">
+            <div class="form-group">
+                <label for="OldName">Old Profile Name </label>
+                <input type="text" class="form-control" name="oldname" required>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="NewName">New Profile Name</label>
+                <input type="text" class="form-control" name="newname" required>
+            </div>
+            <button class="submitbutton" type="submit" class="btn btn-primary btn-block">Change Profile Name</button>
+        </form>
     </div>
 
     <div id="ChangeUsername" class="tabcontent">
         <h2>Change Username</h2>
-        {% if error %}
-        <p class="error">{{ error }}</p>
-        {% elif comment %}
-        <p class="comment">{{ comment }}</p>
+        {% if uname_error %}
+        <p class="error">{{ uname_error }}</p>
+        {% elif uname_comment %}
+        <p class="comment">{{ uname_comment }}</p>
         {% endif %}
+        <p>If the change is successful, you will be signed out.</p>
         <form method=POST action="{{ url_for('changeusername') }}">
             <div class="form-group">
-                <label for="OldUsername">Old Username </label>
+                <label for="OldUsername">Old Username</label>
                 <input type="text" class="form-control" name="oldusername" required>
             </div>
             <br>
@@ -123,6 +147,12 @@
 
     <div id="ChangePassword" class="tabcontent">
         <h2>Change Password(WIP)</h2>
+        {% if pass_error %}
+        <p class="error">{{ pass_error }}</p>
+        {% elif pass_comment %}
+        <p class="comment">{{ pass_comment }}</p>
+        {% endif %}
+        <p>If the change is successful, you will be signed out.</p>
         <form method=POST action="{{ url_for('changepassword') }}">
             <div class="form-group">
                 <label for="OldPassword">Old Password </label>
@@ -139,8 +169,20 @@
 
     <div id="DeleteAccount" class="tabcontent">
         <h2>Delete Account(WIP)</h2>
+        {% if del_error %}
+        <p class="error">{{ del_error }}</p>
+        {% endif %}
         <p>Are you sure that you want to delete your account?
             <br><span style="color:red">Warning: This action is irreversible.</span>
+            <br>Enter your username and click the button below if you're sure.
+        </p>
+        <form method=POST action="{{ url_for('deleteaccount') }}">
+            <div class="form-group">
+                <label for="Username">Your username: </label>
+                <input type="text" class="form-control" name="username" required>
+            </div>
+            <button class="submitbutton" type="submit" class="btn btn-primary btn-block"><span style="color:red">I accept the risks and wish to continue.</span></button>
+        </form>
         </p>
     </div>
 </div>
@@ -161,6 +203,6 @@
     }
 
     // Get the element with id="defaultOpen" and click on it
-    document.getElementById("defaultOpen").click();
+    document.getElementById({{ elementID }}).click();
 </script>
 {% endblock %}

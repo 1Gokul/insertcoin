@@ -6,7 +6,6 @@ import string
 import os
 import functools
 
-
 CONNECTION_STRING = os.environ.get("MONGO_KEY")
 client = pymongo.MongoClient(CONNECTION_STRING)
 db = client['GameRampStore']
@@ -36,10 +35,12 @@ def checkif_loggedin(func):
 
     return secure_function
 
+
 @app.after_request
 def after_request(response):
     response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
     return response
+
 
 @app.route('/account')
 @checkif_loggedin
@@ -61,6 +62,7 @@ def index():
     else:
         return render_template('home.html', account="Log In")
 
+
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     if request.method == 'POST':
@@ -73,10 +75,16 @@ def login():
                     request.form.get('pass', False).encode('utf-8')):
                 session['username'] = request.form['username']
                 return redirect(url_for('index'))
+
+            else:
+                error = "The username or password that you have entered is incorrect."
+                return render_template('login.html',
+                                    account="Log In",
+                                    error=error)
         else:
             error = "The username or password that you have entered is incorrect."
             return render_template('login.html',
-                                   account=session['username'].upper(),
+                                   account="Log In",
                                    error=error)
 
     else:
@@ -107,24 +115,24 @@ def register():
                 # session['username'] = request.form['username']
                 return render_template(
                     'login.html',
-                    account=session['username'].upper(),
+                    account="Log In",
                     comment='Your account was added successfully!')
 
             else:
                 error = "The username that you entered already exists."
                 return render_template('register.html',
-                                       account=session['username'].upper(),
+                                       account="Log In",
                                        error=error)
 
         else:
             error = "The passwords you entered do not match."
             return render_template('register.html',
-                                   account=session['username'].upper(),
+                                   account="Log In",
                                    error=error)
 
     else:
         return render_template('register.html',
-                               account=session['username'].upper(),
+                               account="Log In",
                                acclink=loginlink)
 
 
@@ -138,7 +146,7 @@ def logout():
 @checkif_loggedin
 def store():
     return render_template('store.html',
-                               account=session['username'].upper())
+                           account=session['username'].upper())
 
 
 @app.route('/profile')
@@ -147,12 +155,12 @@ def profile():
     global db
     user = db['UserInfo'].find_one({"username": session['username']})
     return render_template('profile.html',
-                            account=session['username'].upper(),
-                            username=user['username'],
-                            prof=user['profilename'],
-                            games=user['games'],
-                            ngames=len(user['games']),
-                            balance=user['balance'])
+                           account=session['username'].upper(),
+                           username=user['username'],
+                           prof=user['profilename'],
+                           games=user['games'],
+                           ngames=len(user['games']),
+                           balance=user['balance'])
 
 
 @app.route('/library')
@@ -160,13 +168,11 @@ def profile():
 def library():
 
     return render_template('library.html',
-                               account=session['username'].upper())
+                           account=session['username'].upper())
 
 
 @app.route('/about')
-@checkif_loggedin
 def about():
-
     if 'username' in session:
 
         return render_template('about.html',
@@ -174,16 +180,44 @@ def about():
                                layout='layout')
     else:
         return render_template('about.html',
-                               account=session['username'].upper(),
+                               account="Log In",
                                layout='home')
 
 
 @app.route('/accountsettings')
+@checkif_loggedin
 def acc_settings():
 
     return render_template('accountsettings.html',
-                               account=session['username'].upper())
+                           account=session['username'].upper(), elementID=1)
 
+@app.route('/changeprofilename', methods=['POST', 'GET'])
+@checkif_loggedin
+def changeprofilename():
+
+    if request.method == 'POST':
+        userinfo = db['UserInfo']
+        user = userinfo.find_one({"profilename": request.form['oldname']})
+
+        if user:
+            userinfo.update_one(
+                    {'username': session['username']},
+                    {"$set": {
+                        "profilename": request.form['newname']
+                    }})
+
+            return render_template(
+                'accountsettings.html',
+                account=session['username'].upper(),
+                name_comment="New Profile Name set successfully!",
+                elementID=1)
+                
+
+        else:
+            return render_template('accountsettings.html',
+                                   account=session['username'].upper(),
+                                   name_error="The Old Profile Name is incorrect.",
+                                   elementID=1)
 
 @app.route('/changeusername', methods=['POST', 'GET'])
 @checkif_loggedin
@@ -200,7 +234,7 @@ def changeusername():
                 return render_template(
                     'accountsettings.html',
                     account=session['username'].upper(),
-                    error="The New Username already exists!")
+                    uname_error="The New Username already exists!")
             else:
                 userinfo.update_one(
                     {'username': request.form['oldusername']},
@@ -209,22 +243,69 @@ def changeusername():
                     }})
                 session['username'] = request.form['newusername']
 
-                return render_template(
-                    'accountsettings.html',
-                    account=session['username'].upper(),
-                    comment="New Username set successfully!")
+                return redirect(url_for('logout'))
 
         else:
             return render_template('accountsettings.html',
-                                    account=session['username'].upper(),
-                                    error="The Old username is incorrect.")
+                                   account=session['username'].upper(),
+                                   uname_error="The Old username is incorrect.",
+                                   elementID=2)
+
 
 @app.route('/changepassword', methods=['POST', 'GET'])
 @checkif_loggedin
 def changepassword():
 
-    return render_template('library.html',
-                               account=session['username'].upper())
+    if request.method == 'POST':
+        userinfo = db['UserInfo']
+        user = userinfo.find_one({'username': session['username']})
+
+        if user:
+            if bcrypt.check_password_hash(
+                    user['password'],
+                    request.form.get('oldpass', False).encode('utf-8')):
+                hashpass = bcrypt.generate_password_hash(
+                request.form['newpass'].encode('utf-8'))
+                userinfo.update_one(
+                    {'username': user['username']},
+                    {"$set": {
+                        'password': hashpass
+                    }})
+
+                return redirect(url_for('logout'))
+
+            else:
+                return render_template('accountsettings.html',
+                                    account=session['username'].upper(),
+                                    pass_error="The Old password is incorrect.",
+                                    elementID=3)
+
+@app.route('/deleteaccount',  methods=['POST', 'GET'])
+@checkif_loggedin
+def deleteaccount():
+    
+    if request.method == 'POST':
+        userinfo = db['UserInfo']
+        
+
+        if request.form['username'] == session['username']:
+            user = userinfo.find_one({"username": request.form['username']})
+            if user:
+                userinfo.remove({'username': request.form['username']})
+                return redirect(url_for('logout'))
+            
+            else:
+                return render_template('accountsettings.html',
+                                    account=session['username'].upper(),
+                                    del_error="The Username is incorrect.",
+                                    elementID=4)
+
+        else:
+            return render_template('accountsettings.html',
+                                   account=session['username'].upper(),
+                                   del_error="The Username is incorrect.",
+                                   elementID=4)
+
 
 
 if __name__ == '__main__':
