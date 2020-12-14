@@ -19,14 +19,15 @@
 <BODY>
 
   <!-- NavBar -->
-  <ul>
-    <li><img class="logo" src="{{ url_for('static', filename='img/insertcoin logo horizontal white.png') }}"></li>
-    <div id="NavBar">
-      <li><a href="{{ url_for('index') }}">Home</a></li>
-      <li><a href="{{ url_for('store') }}">Store</a></li>
-      <li><a href="{{ url_for('about') }}">About</a></li>
-    </div>
-    <l1>
+
+  <div id="navbar">
+    <a class="logolink" href="{{ url_for('index') }} ">
+      <img class="logo" src="{{ url_for('static', filename='img/insertcoin logo horizontal white.png') }}">
+    </a>
+    <div style="padding-left: 250px;">
+      <a class="navlink" href="{{ url_for('index') }}">Home</a>
+      <a class="navlink" href="{{ url_for('store') }}">Store</a>
+      <a class="navlink" href="{{ url_for('about') }}">About</a>
       <div class="dropdown">
         <button class="accbtn">{{ account }}</button>
         <div class="dropdown-content">
@@ -35,12 +36,72 @@
           <a href="{{ url_for('logout') }}">Sign out</a>
         </div>
       </div>
-    </l1>
-  </ul>
+    </div>
+  </div>
+
 
   {% block content %}
 
   {% endblock %}
+
+  <div class="footer">
+    <img class="footerimg" src="{{ url_for('static', filename='img/insertcoin logo horizontal white.png') }}"
+      height="147" width="350">
+
+    <div style="float:right; max-width: 250px; word-wrap:break-word; padding-right: 100px; padding-top: 50px;">
+      The insertcoin Corporation
+      2020-2020
+      <br>All Rights Unreserved.
+    </div>
+
+    <ul class="footerlink" style="padding-right: 350px;">
+      <a href="#">
+        <li>Support
+      </a></li>
+      <a href="#">
+        <li>Careers
+      </a></li>
+      <a href="#">
+        <li>Legal Information
+      </a></li>
+    </ul>
+
+    <ul class="footerlink">
+      <a href="{{ url_for('login') }}">
+        <li>Log In
+      </a></li>
+      <a href="{{ url_for('register') }}">
+        <li>Sign Up
+      </a></li>
+      <a href="{{ url_for('about') }}">
+        <li>About
+      </a></li>
+    </ul>
+
+
+  </div>
+
+  <script>
+    window.onscroll = function () {
+      console.log(window.pageYOffset)
+      navbarCheck()
+    };
+
+    var navbar = document.getElementById("navbar");
+
+    function navbarCheck() {
+      if (window.pageYOffset >= 1) {
+        navbar.classList.add("sticky")
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    }
+
+    function scrollDown() {
+      window.scrollBy(0, 730);
+    }
+
+  </script>
 </BODY>
 
 </HTML>

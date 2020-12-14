@@ -14,11 +14,11 @@
 
 
 {% block content %}
-<span class="pagetitle">{{ prof }}'s Account</span>
+<span class="pageheading">{{ prof }}'s Account</span>
 <div class="flex-container">
   <div>
     <span style="float: right; margin-top: 10px;">
-      <a href="{{ url_for('acc_settings') }}" style=" color:cadetblue; font-size: medium;">Account settings</a>
+      <a href="{{ url_for('acc_settings') }}" class="accsettings">Account settings</a>
     </span>
     <p style="float:left">
       <img src="../static/img/defaultprofile.png" height=250 width=250>
@@ -31,5 +31,6 @@
     </p>
 
   </div>
+</div>
 
-  {% endblock %}
+{% endblock %}

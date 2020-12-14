@@ -12,9 +12,38 @@
     background-image: url("/static/img/LayoutBG.png");
   }
 
-  .creditlink {
+  #navbar {
+    background-color: rgba(51, 51, 51, 1) !important;
+  }
+
+  li {
+    float: none;
+  }
+
+  ul a {
+    color: turquoise;
+    text-decoration: none;
+  }
+
+  ul a:visited {
+    text-decoration: none;
+    color: turquoise;
+  }
+
+  ul a:hover {
+    text-decoration: none;
     color: aqua;
-    margin-left: 5%;
+  }
+
+  ul a:focus {
+    text-decoration: none;
+    color: turquoise;
+  }
+
+  ul a:hover,
+  ul a:active {
+    text-decoration: none;
+    color: aqua
   }
 
   .about {
@@ -23,51 +52,61 @@
     text-align: center;
     margin-left: 15%;
     margin-right: 15%;
-    padding: 5px 15px;
-    text-align: start;
+    margin-bottom: 50px;
+    padding: 15px 15px;
+    text-align: left;
     font-size: 40;
     font-weight: 400;
   }
 
-  .pagetitle{
-  border-bottom: 5px solid white;
-  display: inline-flex;
-  font-size: 65;
-  font-weight: 600;
-  color: white;
-  margin-left: 15%;
-  margin-top: 2%;
-  margin-bottom: 2%;
-  background-color:rgba(20, 20, 20, 0.5);
-  padding-left: 5px;
-  padding-right: 5px;
-}
+  .pageheading {
+    border-bottom: 5px solid white;
+    display: inline-flex;
+    font-size: 65;
+    font-weight: 600;
+    color: white;
+    margin-left: 15%;
+    margin-top: 5%;
+    margin-bottom: 2%;
+    background-color: rgba(20, 20, 20, 0.5);
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .creditlink {
+    color: turquoise;
+    text-decoration: none;
+  }
+
+  .creditlink:hover {
+    color: aqua;
+  }
 </style>
 {% endblock %}
 
 {% block content %}
 
-<span class="pagetitle">About</span>
+<span class="pageheading">About</span>
 <div class="about">
   <p>This website has been made only for a college project and has not been made for any commercial use. </p>
   <p>Credits:
-    <br><a class="creditlink" href="https://www.w3schools.com/">W3Schools for the code help</a>
-    <br><a class="creditlink" href="https://www.gog.com/about_gog">GOG for the Homepage text</a>
-    <br><a class="creditlink" href=https://www.flaticon.com/authors/smashicons>Logo</a>
-    <br><a class="creditlink"
-      href="https://unsplash.com/photos/9AmKnNZw3GA?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink" />Background
-    for Layout</a>
-    <br><a class="creditlink" href=https://www.flaticon.com/authors/smashicons>Background for Login</a>
-    <br><a class="creditlink"
-      href="https://unsplash.com/photos/fXmmSz5KkO8?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink">Background
-      for Register</a>
-    <br><a class="creditlink" href="https://pbs.twimg.com/media/CluDFgaVEAAlLsb.png">Homepage background</a>
+  <ul style="margin-left: 10%;">
+    <li><a href="https://www.w3schools.com/">W3Schools for the code help</a></li>
+    <li><a href="https://www.gog.com/about_gog">GOG for the Homepage text</a></li>
+    <li><a href=https://www.flaticon.com/authors/smashicons>Logo</a></li>
+    <li><a href="https://unsplash.com/photos/9AmKnNZw3GA"> Used as Background</a></li>
+    <li><a href=https://www.flaticon.com/authors/smashicons>Background for Login page</a></li>
+    <li><a href="https://unsplash.com/photos/fXmmSz5KkO8">Background for Register page</a></li>
+    <li><a href="https://pbs.twimg.com/media/CluDFgaVEAAlLsb.png">Homepage background</a></li>
+    <li><a href="https://www.youtube.com/watch?v=-wKmbb075Z4">Homepage background video</a></li>
+
+  </ul>
   </p>
 
 
-  <p>
+  <div>
     <a class="creditlink" href="https://github.com/1Gokul/insertcoin">This website's Github repository</a>
-  </p>
+  </div>
 </div>
 
 

@@ -4,91 +4,175 @@
   {% block title %}
   <TITLE>insertcoin: Home</TITLE>
   {% endblock %}
+
   <link rel="Stylesheet" type="text/css" href="/static/css/home.css">
   <link rel="icon" href="/static/img/favicon.ico" type="image/gif" sizes="16x16">
 
   {% block head %}
-  <!-- <style>
-    body {
-      background-image: url("/static/img/LayoutBG.png");
+  <style>
+    #navbar {
+      background-color: rgba(51, 51, 51, 0);
     }
-
-   </style> -->
+  </style>
   {% endblock %}
 
 </HEAD>
 
 <BODY>
 
+
+
   <!-- NavBar -->
-  <ul>
-    <li><img class="logo" src="{{ url_for('static', filename='img/insertcoin logo horizontal white.png') }}"></li>
-    <div id="NavBar">
-      <li><a href="{{ url_for('index') }}">Home</a></li>
-      <li><a href="{{ url_for('store') }}">Store</a></li>
-      <li><a href="{{ url_for('about') }}">About</a></li>
-      <li><span style="position: relative;display: inline-block;left: 825px;"><a href="{{ url_for('login') }}">Log
-            In</a></span></li>
+  <div id="navbar">
+    <a class="logolink" href="{{ url_for('index') }} ">
+      <img class="logo" src="{{ url_for('static', filename='img/insertcoin logo horizontal white.png') }}">
+    </a>
+    <div style="padding-left: 250px;">
+      <a class="navlink" href="{{ url_for('index') }}">Home</a>
+      <a class="navlink" href="{{ url_for('store') }}">Store</a>
+      <a class="navlink" href="{{ url_for('about') }}">About</a>
+      <div style="padding-left: 1075px;"><a class="navlink" href="{{ url_for('login') }}">Log
+          In</a></div>
     </div>
-  </ul>
+  </div>
+
 
 
   {% block content %}
 
-  <div class="bgimg-1">
+  <div>
+    <video autoplay muted loop id="myVideo">
+      <source src="{{ url_for('static', filename='img/home_bgvid.m4v') }}" type="video/mp4">
+    </video>
+    <img class="bgimg-1" src="{{ url_for('static', filename='img/home_bg1.png') }}">
+
+    <!-- <div class="arrowdown">
+      <img src="../static/img/homepage_arrowdown.png" height=100 width=100>
+    </div> -->
+
+    <button class="arrowdown" onclick="scrollDown()"></button>
+  </div>
+  <div class="bgimg-2">
     <div>
       <p style="float:left">
-        <img class="mainlogo" src="../static/img/insertcoin logo vertical white.png" height=450 weight=450>
       <div class="largeheading">The only store you will ever need</div>
       </p>
     </div>
-    <div class="arrowdown">
-      <img src="../static/img/homepage_arrowdown.png" height=100 width=100>
-    </div>
   </div>
 
-  <div
-    style="color: white;background-color:#282E34;text-align:center;padding:20px 50px;text-align: justify;font-size: 40;font-weight: 400;">
+  <div class="homepagedesc" style="background-color: #2e122c;">
     <p>insertcoin is a digital store with a curated selection of games, helping you download, install and manage games
       without the need of a launcher.
+    <p>
+      Currently with 850 million users worldwide, insertcoin is the most widely used digital store for <i>any</i> form
+      of entertainment.
+    </p>
     </p>
   </div>
 
-  <div class="bgimg-2">
-    <div class="largeheading">Hand-picking the best in gaming</div>
-  </div>
-
-  <div style="position:relative;">
-    <div
-      style="color:#ddd;background-color:#282E34;text-align:center;padding:20px 50px;text-align: justify;font-size: 40;font-weight: 400;">
-      <p>A selection of great DRM-free games, from modern hits to all-time classics, that you really shouldn't miss.</p>
-    </div>
-  </div>
-
   <div class="bgimg-3">
-    <div class="largeheading">A customer-first policy, always.</div>
+    <div class="largeheading">Hand-picking the best in gaming.</div>
   </div>
 
-  <div style="position:relative;">
-    <div
-      style="color:#ddd;background-color:#282E34;text-align:center;padding:20px 50px;text-align: justify;font-size: 40;font-weight: 400;">
-      <p>We deliver a user-friendly support enriched with additional customer benefits. We are always here to help!</p>
-    </div>
+  <div class="homepagedesc" style="background-color: #17393f;">
+
+    <p>Our store has a selection of great DRM-free games, from modern hits to all-time classics, that you really
+      shouldn't miss.</p>
+    <p>Every new game, ranging from the latest indie or AAA record-breaker, releases on the insertcoin store
+      <strong>first</strong>.
+    <p> Our revenue agreement makes sure the publishers <i>and</i> developers get an equal share of the money.
+      <br> insertcoin's revenue share <strong>(10%)</strong>, though always remains the minimum out of all game stores.
+      <strong>(Steam: 30%, EGS: 12%)</strong>
+    </p>
+    </p>
+
   </div>
 
   <div class="bgimg-4">
+    <div class="largeheading">A customer-first policy, always.</div>
+  </div>
+
+  <div class="homepagedesc" style="background-color: #331414;">
+    <p>We deliver a user-friendly support enriched with additional customer benefits. We are always here to help!</p>
+    <p>Refund windows are lenient, allowing the user to return a game if they feel the game is not for them.</p>
+    <p>insertcoin also has strict policies on issues ranging from cheating to cyberbullying taking place on its
+      services.
+      <br>Our customer support will always be there to provide solutions any user in need.
+    </p>
+  </div>
+
+  <div class="bgimg-5">
     <div class="largeheading">A <br>hassle-free experience</div>
   </div>
 
-  <div style="position:relative;">
-    <div
-      style="color:#ddd;background-color:#282E34;text-align:center;padding:20px 50px;text-align: justify;font-size: 40;font-weight: 400;">
-      <p>We make a difference in how you buy and play games, with freedom of choice and a unique approach to DRM-free
-        gaming.</p>
+  <div class="homepagedesc" style="background-color: #112e1e;">
+    <p>We always make a difference in your experience of buying and playing games, giving you the freedom of choice and
+      a unique approach to DRM-free
+      gaming.
+    </p>
+  </div>
+  {% endblock %}
+
+  <div class="footer">
+    <img class="footerimg" src="{{ url_for('static', filename='img/insertcoin logo horizontal white.png') }}"
+      height="147" width="350">
+
+    <div style="float:right; max-width: 250px; word-wrap:break-word; padding-right: 100px; padding-top: 50px;">
+      The insertcoin Corporation
+      2020-2020
+      <br>All Rights Unreserved.
     </div>
+
+    <ul class="footerlink" style="padding-right: 350px;">
+      <a href="#">
+        <li>Support
+      </a></li>
+      <a href="#">
+        <li>Careers
+      </a></li>
+      <a href="#">
+        <li>Legal Information
+      </a></li>
+    </ul>
+
+    <ul class="footerlink">
+      <a href="{{ url_for('login') }}">
+        <li>Log In
+      </a></li>
+      <a href="{{ url_for('register') }}">
+        <li>Sign Up
+      </a></li>
+      <a href="{{ url_for('about') }}">
+        <li>About
+      </a></li>
+    </ul>
+
+
   </div>
 
-  {% endblock %}
+  <script>
+    window.onscroll = function () {
+      console.log(window.pageYOffset)
+      navbarCheck()
+    };
+
+    var navbar = document.getElementById("navbar");
+
+    function navbarCheck() {
+      if (window.pageYOffset >= 715) {
+        navbar.classList.add("normalnavbar");
+        navbar.classList.remove("transparentnavbar");
+      } else {
+        navbar.classList.add("transparentnavbar");
+        navbar.classList.remove("normalnavbar");
+      }
+    }
+
+    function scrollDown() {
+      window.scrollBy(0, 730);
+    }
+
+  </script>
 </BODY>
 
 </HTML>

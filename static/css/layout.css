@@ -1,106 +1,107 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
 
-body{
-    margin: 0;
-    padding: 0;
-    /* background-image: url("../img/LayoutBG.png"); */
-    background-size: cover;
-    font-family: 'Poppins', sans-serif;
+body {
+  margin: 0;
+  padding: 0;
+  /* background-image: url("../img/LayoutBG.png"); */
+  background-size: cover;
+  font-family: "Poppins", sans-serif;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-    }
-
- 
-
-input[type="email"], input[type="text"], input[type="Password"]
-{
-    border: 3px solid rgb(100, 100, 100);
-    background: rgba(0, 0, 0, .4);
-    outline: none;
-    padding-left: 10px;
-    padding-right: 10px;
-    height: 40px;
-    color: #fff;       
-    font-size: 16px;
-    position: relative;
-    top: 5px;
-    left: 20px;
 }
 
-
-h1{
-    margin: 0;
-    padding: 0 0 20px;
-    text-align: center;
-    font-weight: 200;
-    font-size: 40px;
+input[type="email"],
+input[type="text"],
+input[type="Password"] {
+  border: 3px solid rgb(100, 100, 100);
+  background: rgba(0, 0, 0, 0.4);
+  outline: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 40px;
+  color: #fff;
+  font-size: 16px;
+  position: relative;
+  top: 5px;
+  left: 20px;
 }
 
+h1 {
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-weight: 200;
+  font-size: 40px;
+}
 
+#navbar {
+  top: 0;
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+  padding-top: 5px;
+  background-color: #333;
+}
+
+#navbar a.navlink {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a.navlink:hover {
+  color: turquoise;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
 
 .logo {
-    padding-top: 10px;
-    padding-right: 50px;
-    overflow: hidden;
-    width: 100px;
-    z-index: -1;
+  background: "../img/insertcoin logo horizontal white.png";
+  overflow: hidden;
+  width: 120px;
 }
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    overflow: visible;
-    background-color: #333;
-  }
-  
-
-  li {
-    float: left;
-  }
-  
-  #NavBar a{
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 16px 16px;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  
-  /* Change the link color to #111 (black) on hover */
-  #Navbar a:hover {
-    color: turquoise
-  }
-
+.logolink {
+  position: fixed;
+  padding-top: 2px;
+  padding-left: 35px;
+}
 
 .loginbutton {
-    border: none;
-    background-color: #333;
-    color:white;
-    padding: 10px 50px;
-    text-align: center;
-    text-decoration: none;
-    display: block;
-    font-size: 16px;
-    position: relative;
-    top: 10px;
-    left: 60px;
-    border-radius:5px;
-    cursor: pointer;
-  }
+  border: none;
+  background-color: #333;
+  color: white;
+  padding: 10px 50px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  position: relative;
+  top: 10px;
+  left: 60px;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
 .loginbutton :hover {
-    background-color: rgb(80, 79, 79);
+  background-color: rgb(80, 79, 79);
 }
 
-  
-.error{
-    color: #ff5555;
+.error {
+  color: #ff5555;
 }
 
-.comment{
+.comment {
   color: turquoise;
 }
 
@@ -108,9 +109,9 @@ ul {
 .accbtn {
   background-color: #333;
   color: white;
-  padding: 18px;  
-  font-family: 'Poppins', sans-serif;
-  font-size: 16px;
+  padding: 17px;
+  font-family: "Poppins", sans-serif;
+  font-size: 17px;
   border: none;
   cursor: pointer;
 }
@@ -126,7 +127,7 @@ ul {
   position: absolute;
   background-color: #333;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -137,46 +138,112 @@ ul {
   display: block;
 }
 
-.dropdown-content a:hover {background-color: grey}
+.dropdown-content a:hover {
+  background-color: grey;
+}
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
 .dropdown:hover .accbtn {
-  color: turquoise}
+  color: turquoise;
+}
 
 .flex-container {
   display: flex;
   margin-left: 15%;
   margin-right: 15%;
+  margin-bottom: 50px;
   flex-direction: column;
   background-color: rgba(20, 20, 20, 0.9);
 }
 
 .flex-container > div {
-  color:white;
+  color: white;
   margin: auto;
   width: 90%;
   padding: 5px;
   font-size: 30px;
 }
 
-.profiletitle{
+.profiletitle {
   color: rgb(150, 150, 150);
   font-size: medium;
 }
 
-.pagetitle{
+.pageheading {
   border-bottom: 5px solid white;
   display: inline-flex;
   font-size: 65;
   font-weight: 600;
   color: white;
   margin-left: 15%;
-  margin-top: 2%;
+  margin-top: 5%;
   margin-bottom: 2%;
-  background-color:rgba(20, 20, 20, 0.5);
+  background-color: rgba(20, 20, 20, 0.5);
   padding-left: 5px;
   padding-right: 5px;
+}
+
+.accsettings {
+  color: cadetblue;
+  font-size: medium;
+}
+.accsettings:hover {
+  color: turquoise;
+}
+
+.footer {
+  position: relative;
+  margin: 0;
+  padding-top: 25px;
+  padding-bottom: 200px;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  text-align: center;
+}
+
+.footerimg {
+  float: left;
+  padding-top: 25px;
+  padding-left: 40px;
+}
+
+.footerlink {
+  list-style-type: none;
+  line-height: 50px;
+  padding-right: 50px;
+  float: right;
+}
+
+.footerlink li {
+  float: none;
+}
+
+.footerlink a {
+  color: white;
+  text-decoration: none;
+}
+
+.footerlink a:visited {
+  text-decoration: none;
+  color: white;
+}
+
+.footerlink a:hover {
+  text-decoration: none;
+  color: turquoise;
+}
+
+.footerlink a:focus {
+  text-decoration: none;
+  color: white;
+}
+
+.footerlink a:hover,
+.footerlink a:active {
+  text-decoration: none;
+  color: turquoise;
 }
