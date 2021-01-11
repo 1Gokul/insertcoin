@@ -6,12 +6,6 @@ html {
   margin: 0;
   color: #777;
   padding: 0;
-  /* background-image: url("../img/LayoutBG.png"); 
-     background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; */
-
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
 }
@@ -24,7 +18,7 @@ html {
   filter: grayscale(20%);
   opacity: 0.75;
   background-attachment: fixed;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   z-index: -2;
@@ -40,16 +34,13 @@ html {
 }
 
 .bgimg-1 {
-  position: absolute;
-  right: 0;
-  bottom: 0;
+  position: sticky;
   min-width: 100%;
-  min-height: 100%;
+  margin-top: -100px;
   z-index: -2;
 }
 
 .bgimg-2 {
-  margin-top: 754px;
   background-image: url("../img/home_bg2.jpg");
   min-height: 100%;
 }
@@ -74,6 +65,9 @@ html {
   top: 125px;
   left: 85px;
 }
+.largeheading_box {
+  padding: 10px;
+}
 .largeheading {
   text-align: end;
   margin-left: 25%;
@@ -81,7 +75,7 @@ html {
   margin-right: 2%;
   color: white;
   font-weight: 900;
-  font-size: 150;
+  font-size: 10em;
 }
 .arrowdown {
   opacity: 0;
@@ -101,20 +95,37 @@ html {
   font-weight: 400;
 }
 
-#navbar {
+.navbar {
   top: 0;
-  z-index: 100;
+  z-index: 3;
   position: fixed;
   width: 100%;
   padding-top: 5px;
   background-color: rgba(51, 51, 51, 1);
   padding-bottom: 5px;
-  overflow: hidden;
 }
 
-#navbar a.navlink {
-  float: left;
-  display: block;
+ul {
+  list-style-type: none;
+}
+
+a {
+  transition: color 200ms ease;
+}
+
+a:hover {
+  color: turquoise;
+}
+
+.navbar ul {
+  text-align: right;
+  list-style-type: none;
+  margin-right: 100px;
+}
+.navbar li {
+  display: inline;  
+}
+.navbar li a {
   color: #f2f2f2;
   text-align: center;
   padding: 14px 16px;
@@ -122,8 +133,40 @@ html {
   font-size: 17px;
 }
 
-#navbar a.navlink:hover {
+.navbar a:hover {
   color: turquoise;
+}
+
+.logo {
+  background: "../img/insertcoin logo horizontal white.png";
+  float: left;
+  width: 9%;
+  max-width: 50%;
+  margin-left: 2.5vw;
+  margin-right: 10vw;
+}
+
+.navbar_menu {
+  margin-right: auto;
+  clear: none;
+}
+
+#navbar_menu-btn {
+  display: none;
+}
+
+.navbar.responsive {
+  background-color: rgb(38, 42, 63) !important;
+}
+
+.navbar.responsive .navbar_menu {
+  background-color: rgb(38, 42, 63);
+  max-height: 700px;
+}
+.navbar.responsive a {
+  float: none;
+  display: block;
+  text-align: left;
 }
 
 .transparentnavbar {
@@ -137,34 +180,43 @@ html {
   background-color: rgba(51, 51, 51, 1) !important;
 }
 
-.sticky {
-  top: 0;
-  z-index: 100;
-  position: fixed;
-  width: 100%;
+#nav-icon span:nth-child(1) {
+  top: 0px;
 }
 
-.logo {
-  background: "../img/insertcoin logo horizontal white.png";
-  overflow: hidden;
-  width: 120px;
+#nav-icon span:nth-child(2),
+#nav-icon span:nth-child(3) {
+  top: 9px;
 }
 
-.logolink {
-  position: fixed;
-  padding-top: 2px;
-  padding-left: 35px;
+#nav-icon span:nth-child(4) {
+  top: 18px;
 }
 
-/* Turn off parallax scrolling for tablets and phones */
-@media only screen and (max-device-width: 1024px) {
-  .bgimg-1,
-  .bgimg-2,
-  .bgimg-3,
-  .bgimg-4,
-  .bgimg-5 {
-    background-attachment: scroll;
-  }
+#nav-icon.open span:nth-child(1) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+
+#nav-icon.open span:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+#nav-icon.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+#nav-icon.open span:nth-child(4) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
 }
 
 .loginBox {
@@ -253,16 +305,6 @@ input[type="Password"] {
   width: 430;
 }
 
-.account {
-  text-align: right;
-  margin-right: 15%;
-  float: right;
-}
-
-li {
-  float: left;
-}
-
 .loginbutton {
   border: none;
   background-color: #333;
@@ -280,35 +322,39 @@ li {
 }
 
 .loginbutton:hover {
-  background-color: rgb(57, 185, 173);
+  background-color: turquoise;
 }
 
 .error {
   color: rgb(248, 114, 114);
 }
 
-.footer {
+footer {
   position: relative;
   margin: 0;
-  padding-top: 25px;
-  padding-bottom: 200px;
   width: 100%;
-  background-color: #333;
+  background-color: rgba(51, 51, 51, 1);
   color: white;
   text-align: center;
 }
 
+.footer-wrap {
+  margin: 0 auto r;
+}
+
 .footerimg {
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: 0;
   float: left;
-  padding-top: 25px;
-  padding-left: 40px;
 }
 
 .footerlink {
+  padding: 30px 75px;
+  display: table-cell;
   list-style-type: none;
-  line-height: 50px;
-  padding-right: 50px;
-  float: right;
+  line-height: 40px;
+  height: 200px;
 }
 
 .footerlink li {
@@ -325,9 +371,13 @@ li {
   color: white;
 }
 
-.footerlink a:hover {
-  text-decoration: none;
-  color: turquoise;
+.company_name {
+  float: left;
+  font-size: 18;
+  padding-top: 50px;
+  padding-left: 100px;
+  padding-right: 200px;
+  font-weight: 900;
 }
 
 .footerlink a:focus {
@@ -339,4 +389,122 @@ li {
 .footerlink a:active {
   text-decoration: none;
   color: turquoise;
+}
+
+@media screen and (max-width: 600px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+  body {
+    position: relative;
+  }
+  .navbar {
+    position: sticky;
+    padding-bottom: 0;
+    background-color: rgba(51, 51, 51, 1) !important;
+    transition: background-color 0.5s ease-in-out;
+  }
+  .navbar_menu {
+    background-color: rgba(51, 51, 51, 1);
+    min-width: 100%;
+    clear: both;
+    overflow: hidden;
+    max-height: 0;
+    border-bottom: 5px solid #f2f2f2;
+    border-width: 0;
+    transition: max-height 0.5s ease-in-out, background-color 0.5s ease-in-out;
+  }
+
+  .navbar_menu li a {
+    display: block;
+    text-align: left;
+  }
+
+  .navbar .logo {
+    width: 40%;
+    margin-right: 0;
+  }
+
+  #nav-icon {
+    width: 25px;
+    height: 10px;
+    position: relative;
+    float: right;
+    margin: 15px 20px;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+  }
+
+  #nav-icon span {
+    display: block;
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background: #f2f2f2;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.25s ease-in-out;
+    -moz-transition: 0.25s ease-in-out;
+    -o-transition: 0.25s ease-in-out;
+    transition: 0.25s ease-in-out;
+  }
+
+  .bgimg-1,
+  .bgimg-2,
+  .bgimg-3,
+  .bgimg-4,
+  .bgimg-5 {
+    background-attachment: scroll;
+  }
+
+  #myVideo{
+    display: none;
+  }
+
+  .bgimg-1 {
+    display: none;
+    margin-top: -80px;
+  }
+  .bgimg-2 {
+    margin-top: -30px;
+    min-height: 400px;
+  }
+  .largeheading {
+    font-size: 3.5em;
+    margin: 0;
+  }
+  .homepagedesc {
+    font-size: 1.0em;
+  }
+
+  footer {
+    padding: 20px;
+    text-align: left;
+  }
+
+  .company_name {
+    float: none;
+    padding-left: 1px;
+    padding-bottom: 10px;
+    padding-right: 0;
+  }
+
+  .footerlink {
+    display: block;
+    float: none;
+    padding: 0;
+    height: auto;
+  }
 }

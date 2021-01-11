@@ -1,6 +1,7 @@
 <HTML>
 
 <HEAD>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {% block title %}
   <TITLE>insertcoin: Home</TITLE>
   {% endblock %}
@@ -20,85 +21,98 @@
 
   <!-- NavBar -->
 
-  <div id="navbar">
-    <a class="logolink" href="{{ url_for('index') }} ">
-      <img class="logo" src="{{ url_for('static', filename='img/insertcoin logo horizontal white.png') }}">
-    </a>
-    <div style="padding-left: 250px;">
-      <a class="navlink" href="{{ url_for('index') }}">Home</a>
-      <a class="navlink" href="{{ url_for('store') }}">Store</a>
-      <a class="navlink" href="{{ url_for('about') }}">About</a>
-      <div class="dropdown">
-        <button class="accbtn">{{ account }}</button>
-        <div class="dropdown-content">
-          <a href="{{ url_for('profile') }}">Profile</a>
-          <a href="{{ url_for('library') }}">Library</a>
-          <a href="{{ url_for('logout') }}">Sign out</a>
+  <header class="navbar" id="navbar">
+    <img class="logo" src="{{ url_for('static', filename='img/insertcoin logo horizontal white.png') }}">
+    <input class="menu-btn" type="checkbox" id="navbar_menu-btn" onclick="HamburgerMenuClicked()" />
+    <label id="nav-icon" for="navbar_menu-btn">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+    <ul class="navbar_menu" id="navbar_menu">
+      <li><a href="{{ url_for('index') }}">Home</a></li>
+      <li><a href="{{ url_for('store') }}">Store</a></li>
+      <li><a href="{{ url_for('store') }}">Community</a></li>
+      <li>
+        <div class="dropdown">
+          <button class="accbtn" id="accbtn">{{ account }}</button>
+          <div class="dropdown-content" id="dropdown-content">
+            <a href="{{ url_for('profile') }}">Profile</a>
+            <a href="{{ url_for('library') }}">Library</a>
+            <a href="{{ url_for('logout') }}">Sign out</a>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
+      </li>
+    </ul>
+  </header>
+
 
 
   {% block content %}
 
   {% endblock %}
 
-  <div class="footer">
-    <img class="footerimg" src="{{ url_for('static', filename='img/insertcoin logo horizontal white.png') }}"
-      height="147" width="350">
+  <footer>
+    <div class="footer_wrap">
+      <span class="company_name">insertcoin
+        Corporation</span>
 
-    <div style="float:right; max-width: 250px; word-wrap:break-word; padding-right: 100px; padding-top: 50px;">
-      The insertcoin Corporation
-      2020-2020
-      <br>All Rights Unreserved.
+      <ul class="footerlink">
+        <a href="{{ url_for('about') }}">
+          <li>About Us
+        </a></li>
+        <a href="#">
+          <li>Careers
+        </a></li>
+        <a href="#">
+          <li>Partners
+        </a></li>
+        <a href="#">
+          <li>Publications
+        </a></li>
+      </ul>
+
+      <ul class="footerlink">
+        <a href="#">
+          <li>People
+        </a></li>
+        <a href="#">
+          <li>Press Inquiries
+        </a></li>
+      </ul>
+      <ul class="footerlink">
+        <a href="#">
+          <li>Site Terms Of Use
+        </a></li>
+        <a href="#">
+          <li>Security
+        </a></li>
+        <a href="#">
+          <li>Privacy Policy
+        </a></li>
+        <a href="#">
+          <li>Legal Information
+        </a></li>
+      </ul>
+
+
     </div>
-
-    <ul class="footerlink" style="padding-right: 350px;">
-      <a href="#">
-        <li>Support
-      </a></li>
-      <a href="#">
-        <li>Careers
-      </a></li>
-      <a href="#">
-        <li>Legal Information
-      </a></li>
-    </ul>
-
-    <ul class="footerlink">
-      <a href="{{ url_for('login') }}">
-        <li>Log In
-      </a></li>
-      <a href="{{ url_for('register') }}">
-        <li>Sign Up
-      </a></li>
-      <a href="{{ url_for('about') }}">
-        <li>About
-      </a></li>
-    </ul>
-
-
-  </div>
-
+  </footer>
   <script>
-    window.onscroll = function () {
-      console.log(window.pageYOffset)
-      navbarCheck()
-    };
-
-    var navbar = document.getElementById("navbar");
-
-    function navbarCheck() {
-      if (window.pageYOffset >= 1) {
-        navbar.classList.add("sticky")
-      } else {
-        navbar.classList.remove("sticky");
-      }
+      // Hamburger Menu that appears on mobile
+    document.getElementById('nav-icon').onclick = function () {
+      document.getElementById('nav-icon').classList.toggle('open');
     }
 
-    function scrollDown() {
-      window.scrollBy(0, 730);
+    function HamburgerMenuClicked() {
+
+      var y = document.getElementById("navbar");
+      if (y.className === "navbar") {
+        y.className += " responsive";
+      } else {
+        y.className = "navbar";
+      }
     }
 
   </script>

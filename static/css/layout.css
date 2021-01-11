@@ -1,11 +1,13 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
 
-body {
+body,
+html {
+  height: 100%;
   margin: 0;
+  color: #777;
   padding: 0;
-  /* background-image: url("../img/LayoutBG.png"); */
-  background-size: cover;
   font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -34,20 +36,40 @@ h1 {
   text-align: center;
   font-weight: 200;
   font-size: 40px;
-}
+} 
 
-#navbar {
+.navbar {
   top: 0;
-  z-index: 100;
+  z-index: 3;
   position: fixed;
   width: 100%;
-  padding-top: 5px;
-  background-color: #333;
+  padding: 5px 0px;
+  background-color: rgba(51, 51, 51, 1);
 }
 
-#navbar a.navlink {
-  float: left;
-  display: block;
+ul {
+  list-style-type: none;
+}
+
+a {
+  transition: color 200ms ease;
+}
+
+a:hover {
+  color: turquoise;
+}
+
+.navbar ul {
+  margin: 0;
+  text-align: right;
+  padding: 0;
+  list-style-type: none;
+  margin-right: 100px;
+}
+.navbar li {
+  display: inline;
+}
+.navbar li a {
   color: #f2f2f2;
   text-align: center;
   padding: 14px 16px;
@@ -55,46 +77,106 @@ h1 {
   font-size: 17px;
 }
 
-#navbar a.navlink:hover {
+.navbar a:hover {
   color: turquoise;
-}
-
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
 }
 
 .logo {
   background: "../img/insertcoin logo horizontal white.png";
+  float: left;
+  width: 9%;
+  max-width: 50%;
+  margin-left: 2.5vw;
+  margin-right: 10vw;
+}
+
+.navbar_menu {
+  margin-right: auto;
+  clear: none;
+}
+
+#navbar_menu-btn {
+  display: none;
+}
+
+.navbar.responsive {
+  background-color: rgb(38, 42, 63);
+}
+
+.navbar.responsive .navbar_menu {
+  background-color: rgb(38, 42, 63);
+  max-height: 700px;
+}
+.navbar.responsive a {
+  float: none;
+  display: block;
+  text-align: left;
+}
+.navbar.responsive .accbtn {
+  background-color:rgb(38, 42, 63);
+}
+
+
+.navbar.responsive .dropdown-content {
+  display: block;
+  position: relative;
   overflow: hidden;
-  width: 120px;
+  border-left: #f2f2f2 solid 5px;
+}
+
+.navbar.responsive .dropdown-content a{
+  padding-left: 15px;
+}
+
+.navbar.responsive .dropdown .accbtn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  z-index: 2;
 }
 
 .logolink {
   position: fixed;
-  padding-top: 2px;
   padding-left: 35px;
 }
 
-.loginbutton {
-  border: none;
-  background-color: #333;
-  color: white;
-  padding: 10px 50px;
-  text-align: center;
-  text-decoration: none;
-  display: block;
-  font-size: 16px;
-  position: relative;
-  top: 10px;
-  left: 60px;
-  border-radius: 5px;
-  cursor: pointer;
+#nav-icon span:nth-child(1) {
+  top: 0px;
 }
 
-.loginbutton :hover {
-  background-color: rgb(80, 79, 79);
+#nav-icon span:nth-child(2),
+#nav-icon span:nth-child(3) {
+  top: 9px;
+}
+
+#nav-icon span:nth-child(4) {
+  top: 18px;
+}
+
+#nav-icon.open span:nth-child(1) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+
+#nav-icon.open span:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+#nav-icon.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+#nav-icon.open span:nth-child(4) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
 }
 
 .error {
@@ -107,11 +189,13 @@ h1 {
 
 /* Account button dropdown menu */
 .accbtn {
-  background-color: #333;
-  color: white;
-  padding: 17px;
-  font-family: "Poppins", sans-serif;
+  background-color: inherit;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
   font-size: 17px;
+  font-family: inherit;
   border: none;
   cursor: pointer;
 }
@@ -119,27 +203,26 @@ h1 {
 .dropdown {
   position: relative;
   display: inline-block;
-  left: 825px;
 }
 
 .dropdown-content {
   display: none;
+  max-height: 0;
   position: absolute;
-  background-color: #333;
+  transition: max-height 0.2s ease-in-out, background-color 0.5s ease-in-out;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
 
 .dropdown-content a {
-  color: white;
+  float: none;
+  color: black;
+  background-color: #333;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
-}
-
-.dropdown-content a:hover {
-  background-color: grey;
+  text-align: left !important;
 }
 
 .dropdown:hover .dropdown-content {
@@ -193,29 +276,32 @@ h1 {
 .accsettings:hover {
   color: turquoise;
 }
-
-.footer {
+footer {
   position: relative;
   margin: 0;
-  padding-top: 25px;
-  padding-bottom: 200px;
   width: 100%;
-  background-color: #333;
+  background-color: rgba(51, 51, 51, 1);
   color: white;
   text-align: center;
 }
 
+.footer-wrap {
+  margin: 0 auto r;
+}
+
 .footerimg {
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: 0;
   float: left;
-  padding-top: 25px;
-  padding-left: 40px;
 }
 
 .footerlink {
+  padding: 30px 75px;
+  display: table-cell;
   list-style-type: none;
-  line-height: 50px;
-  padding-right: 50px;
-  float: right;
+  line-height: 40px;
+  height: 200px;
 }
 
 .footerlink li {
@@ -232,9 +318,13 @@ h1 {
   color: white;
 }
 
-.footerlink a:hover {
-  text-decoration: none;
-  color: turquoise;
+.company_name {
+  float: left;
+  font-size: 18;
+  padding-top: 50px;
+  padding-left: 100px;
+  padding-right: 200px;
+  font-weight: 900;
 }
 
 .footerlink a:focus {
@@ -246,4 +336,113 @@ h1 {
 .footerlink a:active {
   text-decoration: none;
   color: turquoise;
+}
+
+@media screen and (max-width: 600px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+  body {
+    position: relative;
+  }
+  .navbar {
+    position: relative;
+    background-color: rgba(51, 51, 51, 1);
+    transition: background-color 0.5s ease-in-out;
+  }
+  .navbar_menu {
+    background-color: rgba(51, 51, 51, 1);
+    min-width: 100%;
+    clear: both;
+    overflow: hidden;
+    max-height: 0;
+    border-bottom: 5px solid #f2f2f2;
+    border-width: 0;
+    transition: max-height 0.5s ease-in-out, background-color 0.5s ease-in-out;
+  }
+
+  .navbar_menu li a {
+    display: block;
+    text-align: left;
+  }
+
+  .dropdown {
+    float: left;    
+    min-width: 100%;
+    clear: both;
+    padding: 0;
+  }
+
+  .dropdown:hover .dropdown-content {
+    max-height: 200px;
+  }
+
+  .dropdown-content a{    
+  background-color: rgb(45, 50, 75);
+  }
+
+  .accbtn{
+    float: left;
+    position: relative;
+  }
+
+  .navbar .logo {
+    width: 40%;
+    margin-right: 0;
+  }
+
+  #nav-icon {
+    width: 25px;
+    height: 10px;
+    position: relative;
+    float: right;
+    margin: 15px 20px;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+  }
+
+  #nav-icon span {
+    display: block;
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background: #f2f2f2;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.25s ease-in-out;
+    -moz-transition: 0.25s ease-in-out;
+    -o-transition: 0.25s ease-in-out;
+    transition: 0.25s ease-in-out;
+  }
+
+  footer {
+    padding: 20px;
+    text-align: left;
+  }
+
+  .company_name {
+    float: none;
+    padding-left: 1px;
+    padding-bottom: 10px;
+    padding-right: 0;
+  }
+
+  .footerlink {
+    display: block;
+    float: none;
+    padding: 0;
+    height: auto;
+  }
 }
