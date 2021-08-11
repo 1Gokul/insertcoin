@@ -1,7 +1,8 @@
-# insertcoin
+# insertcoin (ARCHIVED)
 
-A web application that imitates the functionality of a game marketplace such as [Steam](https://steamcommunity.com/).
-Made to just implement basic **CRUD** operations in MongoDB, with a basic front-end.
+My first foray into web development!
+
+Made to just implement basic **CRUD** operations in MongoDB, with a basic front-end. Not responsive on mobile, so I recommend using it on a desktop.
 
 You can check out the website here: [insertcoin-store.herokuapp.com](https://insertcoin-store.herokuapp.com/)
 
