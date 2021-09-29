@@ -49,9 +49,11 @@
 
 
 
-  {% block content %}
+  <main style="height:100vh">
+    {% block content %}
+    {% endblock %}
+  </main>
 
-  {% endblock %}
 
   <footer>
     <div class="footer_wrap">
@@ -100,7 +102,7 @@
     </div>
   </footer>
   <script>
-      // Hamburger Menu that appears on mobile
+    // Hamburger Menu that appears on mobile
     document.getElementById('nav-icon').onclick = function () {
       document.getElementById('nav-icon').classList.toggle('open');
     }

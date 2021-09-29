@@ -112,12 +112,12 @@
         <form method=POST action="{{ url_for('changeprofilename') }}">
             <div class="form-group">
                 <label for="OldName">Old Profile Name </label>
-                <input type="text" class="form-control" name="oldname" required>
+                <input id="old-profile-name" type="text" class="form-control" name="oldname" required>
             </div>
             <br>
             <div class="form-group">
                 <label for="NewName">New Profile Name</label>
-                <input type="text" class="form-control" name="newname" required>
+                <input id="new-profile-name" type="text" class="form-control" name="newname" required>
             </div>
             <button class="submitbutton" type="submit" class="btn btn-primary btn-block">Change Profile Name</button>
         </form>
